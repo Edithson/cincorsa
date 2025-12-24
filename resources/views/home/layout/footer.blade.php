@@ -22,10 +22,10 @@
             <div>
                 <h4 class="text-lg font-bold mb-4">Liens Rapides</h4>
                 <ul class="space-y-3">
-                    <li><a href="#accueil" class="text-gray-400 hover:text-green-400 transition">Accueil</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-green-400 transition">Services</a></li>
-                    <li><a href="#apropos" class="text-gray-400 hover:text-green-400 transition">À propos</a></li>
-                    <li><a href="#contact" class="text-gray-400 hover:text-green-400 transition">Contact</a></li>
+                    <li><a href="{{route('home')}}" class="text-gray-400 hover:text-green-400 transition">Accueil</a></li>
+                    <li><a href="{{route('service')}}" class="text-gray-400 hover:text-green-400 transition">Services</a></li>
+                    <li><a href="{{route('about')}}" class="text-gray-400 hover:text-green-400 transition">À propos</a></li>
+                    <li><a href="{{route('contact')}}" class="text-gray-400 hover:text-green-400 transition">Contact</a></li>
                 </ul>
             </div>
 

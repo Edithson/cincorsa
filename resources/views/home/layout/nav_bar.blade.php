@@ -15,11 +15,11 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="#accueil" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
-                <a href="#services" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
-                <a href="#apropos" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
-                <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
-                <a href="#contact" class="btn-primary text-sm">Demander un devis</a>
+                <a href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
+                <a href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
+                <a href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
+                <a href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+                <a href="{{route('contact')}}" class="btn-primary text-sm">Demander un devis</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -44,10 +44,10 @@
     </button>
 
     <div class="mt-12 space-y-6">
-        <a href="#accueil" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
-        <a href="#services" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
-        <a href="#apropos" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
-        <a href="#contact" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
-        <a href="#contact" class="btn-primary mt-6">Demander un devis</a>
+        <a href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
+        <a href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
+        <a href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
+        <a href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
+        <a href="{{route('contact')}}" class="btn-primary mt-6">Demander un devis</a>
     </div>
 </div>

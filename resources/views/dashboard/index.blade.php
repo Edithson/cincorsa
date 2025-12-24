@@ -10,17 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    @vite(['resources/css/home.css', 'resources/js/app.js'])
+    @vite(['resources/css/dashboard.css', 'resources/js/app.js'])
 </head>
 <body>
     <section>
-        @include('home.layout.nav_bar')
+        @include('dashboard.layout.nav_bar')
         <div class="w-full h-auto mt-0 mb-0">
             @yield('content')
         </div>
-        @include('home.layout.footer')
+        @include('dashboard.layout.footer')
     </section>
 </body>
 
-<script src="{{ asset('js/home/script.js') }}"></script>
+<script src="{{ asset('js/dashboard/script.js') }}"></script>
 </html>
