@@ -7,4 +7,6 @@
     @include('home.sections.about')
     @include('home.sections.industrial_process')
     @include('home.sections.cta')
+
+    <script src="{{ asset('js/home/slide_home.js') }}"></script>
 @endsection

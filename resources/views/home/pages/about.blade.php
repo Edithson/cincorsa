@@ -335,15 +335,8 @@
                 </div>
                 <div class="order-1 lg:order-2">
                     <div
-                        class="w-full h-96 bg-gradient-to-br from-green-100 to-pink-100 rounded-3xl shadow-2xl flex items-center justify-center p-8">
-                        <svg viewBox="0 0 400 400" class="w-full h-full">
-                            <circle cx="200" cy="200" r="150" fill="white" opacity="0.5" />
-                            <circle cx="200" cy="200" r="100" fill="#16a34a" opacity="0.3" />
-                            <circle cx="200" cy="200" r="50" fill="#ec4899" opacity="0.5" />
-                            <path d="M 200 100 L 250 150 L 200 200 L 150 150 Z" fill="#16a34a" />
-                            <path d="M 200 200 L 250 250 L 200 300 L 150 250 Z" fill="#ec4899" />
-                            <circle cx="200" cy="200" r="20" fill="white" />
-                        </svg>
+                        class="w-full h-96 bg-gradient-to-br from-green-100 to-pink-100 rounded-3xl shadow-2xl flex items-center justify-center p-2">
+                        <img class="w-full h-full rounded-3xl" src="/media/img/image.png" alt="">
                     </div>
                 </div>
             </div>

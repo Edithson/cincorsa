@@ -1,42 +1,24 @@
 <!-- Hero Section -->
-<section id="accueil" class="hero-gradient pt-32 pb-20 relative">
-    <div class="container mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <!-- Left Content -->
-            <div class="text-white animate-fadeInUp">
-                <h2 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Transformez votre<br/>
-                    <span class="text-pink-300">Gestion Documentaire</span>
-                </h2>
-                <p class="text-xl text-green-50 mb-8 leading-relaxed">
-                    Leader de l'ingénierie documentaire en Afrique francophone. Solutions complètes d'archivage, GEIDE et dématérialisation pour optimiser vos processus.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#services" class="btn-primary text-center">Découvrir nos solutions</a>
-                    <a href="#contact" class="btn-outline text-center">Contactez-nous</a>
-                </div>
-            </div>
+<section id="accueil" class="hero-gradient relative pt-10">
+    <div class="relative w-full h-screen overflow-hidden bg-slate-900 group shadow-2xl">
 
-            <!-- Right Content - Illustration -->
-            <div class="hidden lg:block animate-float">
-                <div class="relative">
-                    <svg viewBox="0 0 500 500" class="w-full">
-                        <!-- Document principal -->
-                        <rect x="100" y="80" width="300" height="380" rx="20" fill="white" opacity="0.95"/>
-                        <line x1="140" y1="140" x2="360" y2="140" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
-                        <line x1="140" y1="190" x2="320" y2="190" stroke="#e5e7eb" stroke-width="6" stroke-linecap="round"/>
-                        <line x1="140" y1="220" x2="340" y2="220" stroke="#e5e7eb" stroke-width="6" stroke-linecap="round"/>
-                        <line x1="140" y1="250" x2="300" y2="250" stroke="#e5e7eb" stroke-width="6" stroke-linecap="round"/>
-                        <circle cx="250" cy="340" r="40" fill="#ec4899" opacity="0.2"/>
-                        <path d="M235 340 L245 350 L270 325" stroke="#ec4899" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <img id="next-slide" src="" class="absolute inset-0 w-full h-full object-cover opacity-0">
 
-                        <!-- Document secondaire (flou) -->
-                        <rect x="80" y="100" width="300" height="380" rx="20" fill="white" opacity="0.4"/>
+        <div id="current-slide-container" class="absolute inset-0 w-full h-full z-10" style="clip-path: inset(0 0 0 0);">
+            <img id="current-slide" src="/media/img/slides/photo1.png" class="w-full h-full object-cover">
+        </div>
 
-                        <!-- Cercles décoratifs -->
-                        <circle cx="420" cy="120" r="30" fill="#ec4899" opacity="0.3"/>
-                        <circle cx="60" cy="400" r="40" fill="#16a34a" opacity="0.2"/>
-                    </svg>
+        <div id="scanner-bar" class="absolute inset-y-0 left-0 w-1 bg-linear-to-b from-transparent via-emerald-400 to-transparent z-20 opacity-0 shadow-[0_0_20px_rgba(16,185,129,0.8)]">
+            <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-emerald-400 rounded-full blur-sm"></div>
+        </div>
+
+        <div class="absolute inset-0 z-30 flex items-center bg-linear-to-r from-slate-900/80 to-transparent">
+            <div class="container mx-auto px-12">
+                <div id="slide-content" class="max-w-xl transition-all duration-700 transform translate-y-0 opacity-100">
+                    <span id="slide-tag" class="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">Expertise</span>
+                    <h2 id="slide-title" class="text-5xl font-black text-white mb-6 leading-tight">Archivage Physique de Haute Sécurité</h2>
+                    <p id="slide-desc" class="text-gray-300 text-lg mb-8">Nous protégeons l'intégrité de vos documents historiques.</p>
+                    <a href="#" class="inline-block bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-500 transition-colors">Découvrir nos solutions</a>
                 </div>
             </div>
         </div>
