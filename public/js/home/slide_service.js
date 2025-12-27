@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Ton tableau d'images (Chemins relatifs au dossier public)
     const images = [
         "/media/img/slides/photo1.png",
-        "/media/img/slides/photo2.png",
-        "/media/img/slides/photo3.png",
+        "/media/img/slides/photo2.jpg",
+        "/media/img/slides/photo3.jpg",
         "/media/img/slides/photo4.png"
     ];
 

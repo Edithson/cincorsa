@@ -12,14 +12,14 @@
 
     @vite(['resources/css/dashboard.css', 'resources/js/app.js'])
 </head>
-<body>
-    <section>
-        @include('dashboard.layout.nav_bar')
-        <div class="w-full h-auto mt-0 mb-0">
+<body class="bg-gray-100">
+    <div class="flex h-screen overflow-hidden">
+        @include('dashboard.layout.sidebar')
+        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto">
             @yield('content')
-        </div>
+        </main>
         @include('dashboard.layout.footer')
-    </section>
+    </div>
 </body>
 
 <script src="{{ asset('js/dashboard/script.js') }}"></script>

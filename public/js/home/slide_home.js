@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Nous protégeons l'intégrité de vos documents historiques avec une méthodologie éprouvée."
         },
         {
-            url: "/media/img/slides/photo2.png",
+            url: "/media/img/slides/photo2.jpg",
             tag: "Numérisation",
             title: "Transformation Digitale Accélérée",
             desc: "Passez au zéro papier grâce à nos systèmes de numérisation haute performance."
         },
         {
-            url: "/media/img/slides/photo3.png",
+            url: "/media/img/slides/photo3.jpg",
             tag: "Gestion GEIDE",
             title: "Accès Instantané à l'Information",
             desc: "Retrouvez n'importe quel document en moins de 3 secondes grâce à notre IA d'indexation."

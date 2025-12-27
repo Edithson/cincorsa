@@ -15,7 +15,7 @@
                     </p>
                 </div>
             </div>
-            <div class="w-1/3 h-90 absolute top-32 right-2 rounded-xl overflow-hidden shadow-lg hidden lg:block animate-float">
+            <div class="w-1/3 h-70 absolute top-32 right-2 rounded-xl overflow-hidden shadow-lg hidden lg:block animate-float">
                 <img
                     id="hero-slider"
                     src="/media/img/slides/photo1.png"
