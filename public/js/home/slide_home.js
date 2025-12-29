@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const slides = [
         {
-            url: "/media/img/slides/photo1.png",
+            url: "/media/img/slides/photo2.jpg",
             tag: "Expertise Physique",
             title: "Archivage Physique de Haute Sécurité",
             desc: "Nous protégeons l'intégrité de vos documents historiques avec une méthodologie éprouvée."
-        },
-        {
-            url: "/media/img/slides/photo2.jpg",
-            tag: "Numérisation",
-            title: "Transformation Digitale Accélérée",
-            desc: "Passez au zéro papier grâce à nos systèmes de numérisation haute performance."
         },
         {
             url: "/media/img/slides/photo3.jpg",
             tag: "Gestion GEIDE",
             title: "Accès Instantané à l'Information",
             desc: "Retrouvez n'importe quel document en moins de 3 secondes grâce à notre IA d'indexation."
+        },
+        {
+            url: "/media/img/slides/photo1.png",
+            tag: "Numérisation",
+            title: "Transformation Digitale Accélérée",
+            desc: "Passez au zéro papier grâce à nos systèmes de numérisation haute performance."
         }
     ];
 

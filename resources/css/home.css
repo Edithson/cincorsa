@@ -12,4 +12,7 @@
     --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
     /* Tes couleurs spécifiques au thème Home */
     --color-brand: #16a34a;
+    --primary-green: #34AF6C;
+    --second-green: #5BA73F;
+    --color-pink: #5BA73F;
 }

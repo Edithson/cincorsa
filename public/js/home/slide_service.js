@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "/media/img/slides/photo1.png",
         "/media/img/slides/photo2.jpg",
         "/media/img/slides/photo3.jpg",
-        "/media/img/slides/photo4.png"
+        "/media/img/slides/photo4.jpg"
     ];
 
     let currentIndex = 0;

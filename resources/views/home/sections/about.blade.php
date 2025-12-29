@@ -14,8 +14,9 @@
                         <rect x="140" y="200" width="100" height="6" rx="3" fill="#e5e7eb"/>
                         <rect x="140" y="220" width="110" height="6" rx="3" fill="#e5e7eb"/>
                         <rect x="140" y="240" width="90" height="6" rx="3" fill="#e5e7eb"/>
-                        <circle cx="200" cy="290" r="20" fill="#ec4899"/>
-                        <path d="M190 290 L197 297 L212 282" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        {{-- <circle cx="200" cy="290" r="20" fill="#ec4899"/>
+                        <path d="M190 290 L197 297 L212 282" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/> --}}
+                        <img class="h-50 w-50" src="/media/img/logo.png" alt="">
                     </svg>
                 </div>
             </div>
@@ -35,7 +36,7 @@
                     </p>
                 </div>
                 <div class="mt-8">
-                    <a href="#contact" class="btn-primary">En savoir plus</a>
+                    <a href="{{route('about')}}" class="btn-primary">En savoir plus</a>
                 </div>
             </div>
         </div>
