@@ -15,11 +15,14 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="#accueil" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
-                <a href="#services" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
-                <a href="#apropos" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
-                <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
-                <a href="#contact" class="btn-primary text-sm">Demander un devis</a>
+                <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
+                <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
+                <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
+                <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+                <select name="langue" id="langue">
+                    <option value="fr">FR 🇫🇷</option>
+                    <option value="en">EN 🇬🇧</option>
+                </select>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -44,10 +47,54 @@
     </button>
 
     <div class="mt-12 space-y-6">
-        <a href="#accueil" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
-        <a href="#services" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
-        <a href="#apropos" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
-        <a href="#contact" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
-        <a href="#contact" class="btn-primary mt-6">Demander un devis</a>
+        <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
+        <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
+        <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
+        <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
+
     </div>
 </div>
+
+<script>
+    //script pour colorier le lien actif
+    /**
+     * Extrait le premier segment du chemin de l'URL
+     * @returns {string} Le premier argument (ex: "service", "articles") ou une chaîne vide
+     */
+    if (getFirstPathArgument() == "") {
+        // Cas spécial de la page d'accueil
+        let homeLink = document.getElementById("menu_home");
+        let homeMobileLink = document.getElementById("mobile_menu_home");
+        homeLink.classList.add("text-green-600");
+        homeLink.classList.remove("text-gray-700");
+        homeMobileLink.classList.add("text-green-600");
+        homeMobileLink.classList.remove("text-gray-700");
+
+    }
+    let linkId = "menu_" + getFirstPathArgument();
+    let mobileLinkId = "mobile_menu_" + getFirstPathArgument();
+    let activeLink = document.getElementById(linkId);
+    let activeMobileLink = document.getElementById(mobileLinkId);
+    if (activeLink) {
+        activeLink.classList.add("text-green-600");
+        activeLink.classList.remove("text-gray-700");
+    }
+    if (activeMobileLink) {
+        activeMobileLink.classList.add("text-green-600");
+        activeMobileLink.classList.remove("text-gray-700");
+    }
+    function getFirstPathArgument() {
+        // window.location.pathname retourne tout ce qui est après le domaine (ex: "/articles/2")
+        const path = window.location.pathname;
+
+        // On découpe par le caractère "/"
+        // .split('/') sur "/articles/2" donne ["", "articles", "2"]
+        const segments = path.split('/');
+
+        // Le premier argument se trouve toujours à l'index 1
+        // car le chemin commence par un "/" (créant un index 0 vide)
+        return segments[1] || "";
+    }
+
+console.log(getFirstPathArgument()); // Affiche "" si on est sur la page d'accueil
+</script>
