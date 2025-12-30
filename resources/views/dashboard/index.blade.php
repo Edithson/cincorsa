@@ -15,7 +15,8 @@
 <body class="bg-gray-100">
     <div class="flex h-screen overflow-hidden">
         @include('dashboard.layout.sidebar')
-        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto">
+        @include('dashboard.layout.header')
+        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto mt-15">
             @yield('content')
         </main>
         @include('dashboard.layout.footer')
