@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DahsboardController;
 
+// Route::view('/', 'welcome');
+
 Route::get('/', HomeController::class . '@index')->name('home');
 
 Route::get('/about', AboutController::class . '@index')->name('about');
@@ -15,4 +17,18 @@ Route::get('/service', ServiceController::class . '@index')->name('service');
 Route::get('/contact', ContactController::class . '@index')->name('contact');
 Route::get('/faq', FaqController::class . '@index')->name('faq');
 
-Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
+//protected routes
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
+});
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__.'/auth.php';

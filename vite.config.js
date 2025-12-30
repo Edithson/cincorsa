@@ -6,17 +6,8 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel({
-            input: [
-                'resources/css/home.css',
-                'resources/css/dashboard.css',
-                'resources/js/app.js'
-            ],
+            input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
     ],
-    server: {
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
-        },
-    },
 });

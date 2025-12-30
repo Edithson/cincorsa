@@ -1,6 +1,22 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+$logout = function () {
+    Auth::guard('web')->logout();
+
+    Session::invalidate();
+    Session::regenerateToken();
+
+    return redirect('/');
+};
+?>
+
+@volt
 <aside id="sidebar"
     class="fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-white transform -translate-x-full lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 ease-in-out">
     <div class="flex items-center justify-center h-20 bg-slate-950">
+        <img src="{{ asset('media/img/logo.png') }}" alt="logo cinv-corsa" class="w-8 h-8 object-contain">
         <span class="text-xl font-black tracking-tighter text-emerald-400">CINV-COR <span
                 class="text-white">ADMIN</span></span>
     </div>
@@ -44,14 +60,12 @@
     </nav>
 
     <div class="absolute bottom-0 w-full p-4">
-        <button
-            class="flex items-center w-full px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                </path>
+        <button wire:click="logout" class="flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-all group">
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
-            Déconnexion
+            <span class="font-bold">Quitter la session</span>
         </button>
     </div>
-</aside>
+    </aside>
+@endvolt
