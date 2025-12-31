@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DahsboardController;
 
 // Route::view('/', 'welcome');
@@ -23,6 +24,7 @@ Route::get('/faq', FaqController::class . '@index')->name('faq');
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
     Route::resource('/admin/articles', ArticleController::class)->middleware('auth');
+    Route::get('/admin/settings', SettingController::class . '@index')->name('settings.index');
 });
 
 Route::view('dashboard', 'dashboard')
