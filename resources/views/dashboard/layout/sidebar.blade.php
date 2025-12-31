@@ -22,7 +22,7 @@ $logout = function () {
     </div>
 
     <nav class="mt-6 px-4 space-y-2">
-        <a href="#" class="flex items-center px-4 py-3 bg-emerald-600 text-white rounded-xl transition-all">
+        <a id="menu_dashboard" href="{{ route('admin_dashboard') }}" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
@@ -30,7 +30,7 @@ $logout = function () {
             </svg>
             Tableau de bord
         </a>
-        <a href="#"
+        <a id="menu_articles" href="{{ route('articles.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"></path>
@@ -38,7 +38,7 @@ $logout = function () {
             </svg>
             Articles Blog
         </a>
-        <a href="#"
+        <a id="menu_newsletter" href="#"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -47,7 +47,7 @@ $logout = function () {
             </svg>
             Newsletter
         </a>
-        <a href="#"
+        <a id="menu_settings" href="{{ route('settings.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -68,4 +68,25 @@ $logout = function () {
         </button>
     </div>
     </aside>
+
+    <script>
+            // Met en surbrillance l'élément de menu actif
+        document.addEventListener('DOMContentLoaded', function () {
+            const activeSegment = getActiveSegment();
+            const menuItem = document.getElementById(`menu_${activeSegment}`);
+            if (menuItem) {
+                menuItem.classList.add('bg-emerald-600', 'text-white');
+                menuItem.classList.remove('text-slate-400', 'hover:bg-slate-800', 'hover:text-white');
+            }
+        });
+        /**
+         * Récupère le segment de l'URL situé après /admin/
+         */
+        function getActiveSegment() {
+            const path = window.location.pathname;
+            const segments = path.split('/').filter(segment => segment !== "");
+            return segments[1] || 'dashboard'; // 'dashboard' par défaut si vide
+        }
+
+    </script>
 @endvolt

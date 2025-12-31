@@ -10,12 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @vite(['resources/css/dashboard.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100">
     <div class="flex h-screen overflow-hidden">
         @include('dashboard.layout.sidebar')
-        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto">
+        @include('dashboard.layout.header')
+        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto mt-15">
             @yield('content')
         </main>
         @include('dashboard.layout.footer')
