@@ -76,6 +76,9 @@ new class extends Component {
 
         Setting::updateOrCreate(['id' => 1], $data);
 
+        // Rafraîchir le cache immédiatement
+        Setting::clearCache();
+
         session()->flash('status', 'Paramètres mis à jour avec succès !');
         $this->dispatch('settings-updated');
     }

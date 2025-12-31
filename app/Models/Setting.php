@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Setting extends Model
 {
@@ -56,5 +57,20 @@ class Setting extends Model
             'youtube'   => 'YouTube',
             'whatsapp'  => 'WhatsApp'
         ];
+    }
+
+    public static function getCachedSettings()
+    {
+        return Cache::rememberForever('site_settings', function () {
+            return self::first() ?? new self([
+                'name' => 'CINV-CORSA',
+                'logo' => 'default-logo.png'
+            ]);
+        });
+    }
+
+    public static function clearCache()
+    {
+        Cache::forget('site_settings');
     }
 }
