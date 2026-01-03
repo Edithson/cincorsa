@@ -2,6 +2,9 @@
 
 @section('content')
 
+<!-- recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_PUBLIC_KEY') }}"></script>
+
 <style>
 
         /* Animation personnalisée pour la carte (Map) */
