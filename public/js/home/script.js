@@ -35,27 +35,6 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
 });
 
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Form submission
-document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Merci pour votre message ! Notre équipe vous contactera sous peu.');
-    e.target.reset();
-});
 
 // Animation de la ligne de flux lors du scroll pour industrial process
 const pipelineObserver = new IntersectionObserver((entries) => {

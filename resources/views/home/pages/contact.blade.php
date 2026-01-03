@@ -2,6 +2,9 @@
 
 @section('content')
 
+<!-- recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_PUBLIC_KEY') }}"></script>
+
 <style>
 
         /* Animation personnalisée pour la carte (Map) */
@@ -144,60 +147,7 @@
                     <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100">
                         <h3 class="text-2xl font-bold text-slate-800 mb-6">Envoyez-nous un message</h3>
 
-                        <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="md:col-span-1">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nom Complet</label>
-                                <input type="text" required
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                                    placeholder="Ex: Jean Dupont">
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Entreprise /
-                                    Organisation</label>
-                                <input type="text"
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                                    placeholder="Ex: CINV-CORSA">
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email
-                                    Professionnel</label>
-                                <input type="email" required
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                                    placeholder="jean@entreprise.com">
-                            </div>
-
-                            <div class="md:col-span-1">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Service d'intérêt</label>
-                                <select
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all bg-white">
-                                    <option>Archivage Manuel</option>
-                                    <option>Archivage Électronique (SAE)</option>
-                                    <option>GEIDE / Dématérialisation</option>
-                                    <option>Audit & Conseil</option>
-                                    <option>Autre</option>
-                                </select>
-                            </div>
-
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Votre Message</label>
-                                <textarea required rows="4"
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                                    placeholder="Comment pouvons-nous vous aider ?"></button></textarea>
-                            </div>
-
-                            <div class="md:col-span-2">
-                                <button type="submit"
-                                    class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-emerald-600 transition-colors shadow-lg flex items-center justify-center space-x-2">
-                                    <span>Envoyer la demande</span>
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
+                        <livewire:pages.public.contact-form />
                     </div>
                 </div>
 

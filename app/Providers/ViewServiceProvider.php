@@ -11,7 +11,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // On n'injecte ces variables QUE dans les layouts de base
-        View::composer(['layouts.app', 'dashboard.index', 'home.index'], function ($view) {
+        View::composer(['layouts.app', 'dashboard.index', 'home.index', 'home.pages.article.show'], function ($view) {
             $settings = Setting::getCachedSettings();
 
             $view->with('siteName', $settings->name);

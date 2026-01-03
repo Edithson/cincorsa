@@ -17,6 +17,7 @@
             <div class="hidden lg:flex items-center space-x-8">
                 <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
                 <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
+                <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Articles</a>
                 <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
                 <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
                 <select name="langue" id="langue">

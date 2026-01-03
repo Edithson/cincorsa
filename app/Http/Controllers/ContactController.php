@@ -11,4 +11,9 @@ class ContactController extends Controller
     {
         return view('home.pages.contact');
     }
+
+    public function index_admin()
+    {
+        return view('dashboard.contacts.index');
+    }
 }

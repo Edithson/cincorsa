@@ -16,6 +16,8 @@ Route::get('/', HomeController::class . '@index')->name('home');
 
 Route::get('/about', AboutController::class . '@index')->name('about');
 Route::get('/service', ServiceController::class . '@index')->name('service');
+Route::get('/article', HomeController::class . '@list_articles')->name('article');
+Route::get('/article/{article:slug}', HomeController::class . '@show_article')->name('home.article.show');
 Route::get('/contact', ContactController::class . '@index')->name('contact');
 Route::get('/faq', FaqController::class . '@index')->name('faq');
 
@@ -25,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
     Route::resource('/admin/articles', ArticleController::class)->middleware('auth');
     Route::get('/admin/settings', SettingController::class . '@index')->name('settings.index');
+    Route::get('/admin/contact', ContactController::class . '@index_admin')->name('admin.contact.index');
 });
 
 Route::view('dashboard', 'dashboard')

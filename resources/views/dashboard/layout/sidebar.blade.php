@@ -38,14 +38,14 @@ $logout = function () {
             </svg>
             Articles Blog
         </a>
-        <a id="menu_newsletter" href="#"
+        <a id="menu_contact" href="{{ route('admin.contact.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                 </path>
             </svg>
-            Newsletter
+            Contacts
         </a>
         <a id="menu_settings" href="{{ route('settings.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
