@@ -50,6 +50,7 @@
     <div class="mt-12 space-y-6">
         <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
         <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
+        <a id="mobile_menu_article" href="{{route('article')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Articles</a>
         <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
         <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
 
