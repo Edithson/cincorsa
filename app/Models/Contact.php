@@ -13,5 +13,6 @@ class Contact extends Model
         'company',
         'service',
         'message',
+        'is_read',
     ];
 }
