@@ -256,14 +256,7 @@
     </style>
 
 <!-- Hero Section -->
-    <section id="apropos" class="about-hero pt-32 pb-20 relative">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">À Propos de CINV-CORSA</h1>
-            <p class="text-lg md:text-xl lg:text-2xl text-green-50 max-w-3xl mx-auto leading-relaxed">
-                Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 15 ans
-            </p>
-        </div>
-    </section>
+    @include('home.sections.hero_about')
 
     <!-- Introduction & Stats -->
     <section class="py-20 bg-white">

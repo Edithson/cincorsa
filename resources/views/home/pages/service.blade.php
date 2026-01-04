@@ -157,7 +157,7 @@
                     </div>
                 </div>
             </section>
-            <section id="physique" class="reveal py-16 lg:py-24 overflow-hidden">
+            <section id="logiciel" class="reveal py-16 lg:py-24 overflow-hidden">
                 <div class="container mx-auto px-6">
                     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                         <div class="w-full lg:w-1/2 reveal-left">
@@ -214,7 +214,7 @@
                     </div>
                 </div>
             </section>
-            <section id="electronique" class="reveal py-16 lg:py-24 bg-slate-50/50 overflow-hidden">
+            <section id="dematerialisation" class="reveal py-16 lg:py-24 bg-slate-50/50 overflow-hidden">
                 <div class="container mx-auto px-6">
                     <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
                         <div class="w-full lg:w-1/2 reveal-right">
@@ -418,15 +418,7 @@
             </div>
         </section>
 
-        <section class="py-16 bg-emerald-600">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Besoin d'une solution sur mesure ?</h2>
-                <a href="contact.html"
-                    class="inline-block bg-slate-900 text-white font-bold px-10 py-4 rounded-full hover:bg-slate-800 transition-all shadow-xl">
-                    Demander un Audit Gratuit
-                </a>
-            </div>
-        </section>
+        @include('home.sections.cta_service')
     </section>
 
     <script src="{{ asset('js/home/slide_service.js') }}"></script>
