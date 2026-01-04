@@ -15,14 +15,14 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
-                <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
-                <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Articles</a>
-                <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
-                <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
-                <select name="langue" id="langue">
-                    <option value="fr">FR 🇫🇷</option>
-                    <option value="en">EN 🇬🇧</option>
+                <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.home_link') }}</a>
+                <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.service_link') }}</a>
+                <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.article_link') }}</a>
+                <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.about_link') }}</a>
+                <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.contact_link') }}</a>
+                <select name="langue" id="langue" onchange="window.location.href='/lang/' + this.value" class="bg-transparent border-none focus:ring-0 cursor-pointer">
+                    <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>FR 🇫🇷</option>
+                    <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>EN 🇬🇧</option>
                 </select>
             </div>
 
@@ -48,12 +48,11 @@
     </button>
 
     <div class="mt-12 space-y-6">
-        <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
-        <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
-        <a id="mobile_menu_article" href="{{route('article')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Articles</a>
-        <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
-        <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
-
+        <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.home_link') }}</a>
+        <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.service_link') }}</a>
+        <a id="mobile_menu_article" href="{{route('article')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.article_link') }}</a>
+        <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.about_link') }}</a>
+        <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.contact_link') }}</a>
     </div>
 </div>
 

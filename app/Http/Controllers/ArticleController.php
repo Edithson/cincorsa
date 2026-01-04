@@ -16,6 +16,7 @@ class ArticleController extends Controller
         $articles = Article::with('user')->latest()->paginate(10);
 
         return view('dashboard.pages.article.list', compact('articles'));
+        // return view('livewire.pages.admin.article-list', compact('articles'));
     }
 
     /**

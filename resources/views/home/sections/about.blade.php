@@ -16,27 +16,27 @@
                         <rect x="140" y="240" width="90" height="6" rx="3" fill="#e5e7eb"/>
                         {{-- <circle cx="200" cy="290" r="20" fill="#ec4899"/>
                         <path d="M190 290 L197 297 L212 282" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/> --}}
-                        <img class="h-50 w-50" src="/media/img/logo.png" alt="">
+                        <img class="h-50 w-50" src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
                     </svg>
                 </div>
             </div>
 
             <!-- Content -->
             <div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Qui sommes-nous ?</h2>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">{{ __('home.about_title') }}</h2>
                 <div class="space-y-5 text-gray-600 text-lg leading-relaxed">
                     <p>
-                        <strong class="text-green-600 font-semibold">CINV-CORSA</strong> est le leader incontesté de l'ingénierie documentaire en Afrique noire francophone. Nous proposons une offre intégrée complète incluant l'archivage manuel, l'archivage électronique, des logiciels GEIDE et des solutions de dématérialisation.
+                        <strong class="text-green-600 font-semibold">{{ $siteName }} </strong>{{ __('home.about_desc1') }}
                     </p>
                     <p>
-                        Notre expertise couvre la gestion globale du cycle de vie des documents : documents entrants, dossiers de soumission, documents internes et externes. Nous maîtrisons parfaitement l'interaction avec les principaux systèmes d'information (ERP, PLM, CRM, GMAO, messagerie, intranet, extranet).
+                        {{ __('home.about_desc2') }}
                     </p>
                     <p>
-                        Nos Systèmes d'Archivage Électronique (SAE) s'articulent autour de trois piliers essentiels : <strong>50% organisationnel</strong>, <strong>25% réglementaire</strong> et <strong>25% informatique</strong>, garantissant une approche équilibrée et conforme.
+                        {{ __('home.about_desc3') }} <strong>50% {{ __('home.about_desc4') }}</strong>, <strong>25% {{ __('home.about_desc5') }}</strong> et <strong>25% {{ __('home.about_desc6') }}</strong>, {{ __('home.about_desc7') }}
                     </p>
                 </div>
                 <div class="mt-8">
-                    <a href="{{route('about')}}" class="btn-primary">En savoir plus</a>
+                    <a href="{{route('about')}}" class="btn-primary">{{ __('home.about_btn') }}</a>
                 </div>
             </div>
         </div>

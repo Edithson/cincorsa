@@ -38,4 +38,11 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['fr', 'en'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
 require __DIR__.'/auth.php';

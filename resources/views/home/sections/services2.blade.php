@@ -19,7 +19,7 @@
     }
 </style>
 
-<section class="py-20 bg-slate-50">
+<section class="py-20 bg-slate-50" id="home_services">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-black text-slate-900 mb-4">Nos Domaines d'Expertise</h2>

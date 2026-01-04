@@ -9,8 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" type="image/png">
 
     @vite(['resources/css/home.css', 'resources/js/app.js'])
+
+    <script>
+    window.translations = {
+        slides: [
+            {
+                tag: {!! json_encode(__('home.slide1_tag')) !!},
+                title: {!! json_encode(__('home.slide1_title')) !!},
+                desc: {!! json_encode(__('home.slide1_desc')) !!}
+            },
+            {
+                tag: {!! json_encode(__('home.slide2_tag')) !!},
+                title: {!! json_encode(__('home.slide2_title')) !!},
+                desc: {!! json_encode(__('home.slide2_desc')) !!}
+            },
+            {
+                tag: {!! json_encode(__('home.slide3_tag')) !!},
+                title: {!! json_encode(__('home.slide3_title')) !!},
+                desc: {!! json_encode(__('home.slide3_desc')) !!}
+            }
+        ]
+    };
+</script>
+
 </head>
 <body>
     <section>
