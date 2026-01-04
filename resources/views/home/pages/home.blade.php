@@ -4,6 +4,7 @@
     @include('home.sections.hero')
     @include('home.sections.stats')
     @include('home.sections.about')
+    @include('home.sections.articles', ['articles' => $articles])
     @include('home.sections.choise')
     @include('home.sections.services2')
     @include('home.sections.cta1')
