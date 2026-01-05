@@ -63,6 +63,10 @@
                     id="dot-{{ $index }}"></button>
         @endforeach
     </div>
+    {{-- centre le bouton --}}
+    <div class="w-full justify-center text-center mt-8">
+        <a href="{{ route('article') }}" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors justify-center">Voir tous nos articles</a>
+    </div>
     @endif
 </section>
 

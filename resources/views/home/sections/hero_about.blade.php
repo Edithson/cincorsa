@@ -113,14 +113,14 @@
 
             <!-- Section Hero -->
             <div class="text-center mb-4">
-                <div class="mb-8 mt-12 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="mb-8 mt-16 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
                     <span
                         class="inline-block px-6 py-2 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 font-mono text-sm tracking-wider mt-10">
                         Qui sommes-nous ?
                     </span>
                 </div>
 
-                <h1 class="text-emerald-500 font-bold text-9xl mt-8 mb-12">
+                <h1 class="text-emerald-500 font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl mb-12 tracking-tighter mt-10 opacity-0 animate-fade-in">
                     {{ $siteName }}
                 </h1>
 

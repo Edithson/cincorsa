@@ -32,7 +32,7 @@
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
 
                     <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl overflow-hidden shadow-lg">
-                        <img src="/media/img/services/image2.jpg" class="w-full h-full object-cover">
+                        <img src="/media/img/services/image2.png" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent flex items-end p-8">
                             <h3 class="text-xl font-bold text-white uppercase tracking-wider">Archivage Physique</h3>
                         </div>

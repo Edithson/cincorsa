@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const slides = [
         {
-            url: "/media/img/slides/photo2.jpg",
+            url: "/media/img/slides/photo2.png",
             tag: window.translations.slides[0].tag,
             title: window.translations.slides[0].title,
             desc: window.translations.slides[0].desc
         },
         {
-            url: "/media/img/slides/photo3.jpg",
+            url: "/media/img/slides/photo3.png",
             tag: window.translations.slides[1].tag,
             title: window.translations.slides[1].title,
             desc: window.translations.slides[1].desc

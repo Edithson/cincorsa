@@ -1,4 +1,17 @@
+/* Réduction globale de 10% */
+html {
+    font-size: 90%; /* Par défaut c'est 100% (16px) */
+}
 
+/* Ou réduction globale de 15% */
+html {
+    font-size: 95%;
+}
+
+/* Réduire aussi les espacements */
+* {
+    --spacing-scale: 0.9; /* 90% de la taille normale */
+}
 /* Navigation */
 nav {
     backdrop-filter: blur(10px);
