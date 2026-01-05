@@ -4,19 +4,19 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="stat-card">
                 <div class="stat-number">15+</div>
-                <p class="text-gray-600 font-medium">Années d'expérience</p>
+                <p class="text-gray-600 font-medium">{{ __('home.statistic1_title') }}</p>
             </div>
             <div class="stat-card">
                 <div class="stat-number">200+</div>
-                <p class="text-gray-600 font-medium">Clients satisfaits</p>
+                <p class="text-gray-600 font-medium">{{ __('home.statistic2_title') }}</p>
             </div>
             <div class="stat-card">
                 <div class="stat-number">50K+</div>
-                <p class="text-gray-600 font-medium">Documents gérés</p>
+                <p class="text-gray-600 font-medium">{{ __('home.statistic3_title') }}</p>
             </div>
             <div class="stat-card">
                 <div class="stat-number">24/7</div>
-                <p class="text-gray-600 font-medium">Support disponible</p>
+                <p class="text-gray-600 font-medium">{{ __('home.statistic4_title') }}</p>
             </div>
         </div>
     </div>

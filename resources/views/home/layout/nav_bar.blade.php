@@ -1,4 +1,52 @@
 <!-- Navigation -->
+<style>
+    .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .language-toggle:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .language-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #a0a0a0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .language-option:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .language-option.active {
+        color: #22c55e;
+        background: rgba(34, 197, 94, 0.1);
+    }
+
+    .divider {
+        width: 1px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+</style>
 <nav class="fixed top-0 left-0 right-0 z-50" id="navbar">
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
@@ -15,15 +63,22 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Accueil</a>
-                <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
-                <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Articles</a>
-                <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">À propos</a>
-                <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
-                <select name="langue" id="langue">
-                    <option value="fr">FR 🇫🇷</option>
-                    <option value="en">EN 🇬🇧</option>
-                </select>
+                <a id="menu_home" href="{{route('home')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.home_link') }}</a>
+                <a id="menu_service" href="{{route('service')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.service_link') }}</a>
+                <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.article_link') }}</a>
+                <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.about_link') }}</a>
+                <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.contact_link') }}</a>
+                <div class="language-toggle">
+                    <div class="language-option {{ app()->getLocale() == 'fr' ? 'active' : '' }}"
+                        onclick="window.location.href='/lang/fr'">
+                        🇫🇷 <span>FR</span>
+                    </div>
+                    <span class="divider"></span>
+                    <div class="language-option {{ app()->getLocale() == 'en' ? 'active' : '' }}"
+                        onclick="window.location.href='/lang/en'">
+                        🇬🇧 <span>EN</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -48,11 +103,11 @@
     </button>
 
     <div class="mt-12 space-y-6">
-        <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Accueil</a>
-        <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Services</a>
-        <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">À propos</a>
-        <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">Contact</a>
-
+        <a id="mobile_menu_home" href="{{route('home')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.home_link') }}</a>
+        <a id="mobile_menu_service" href="{{route('service')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.service_link') }}</a>
+        <a id="mobile_menu_article" href="{{route('article')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.article_link') }}</a>
+        <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.about_link') }}</a>
+        <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.contact_link') }}</a>
     </div>
 </div>
 
@@ -97,5 +152,4 @@
         return segments[1] || "";
     }
 
-console.log(getFirstPathArgument()); // Affiche "" si on est sur la page d'accueil
 </script>

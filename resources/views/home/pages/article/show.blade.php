@@ -33,7 +33,7 @@
     </div>
 
     {{-- 2. Corps de l'article --}}
-    <div class="container mx-auto px-6 py-12">
+    <div class="container mx-auto px-12 py-12 p-12">
         <div class="flex flex-col lg:flex-row gap-12">
 
             {{-- Contenu principal --}}
@@ -59,35 +59,6 @@
                     <span class="text-slate-500 font-bold text-sm uppercase tracking-wider">Partager l'article :</span>
 
                     <div class="flex items-center gap-3">
-                        @php
-                            $currentUrl = urlencode(request()->fullUrl());
-                            $articleTitle = urlencode($article->title);
-                        @endphp
-
-                        @foreach($siteSocials as $platform => $url)
-                            @php
-                                // Configuration des icônes et couleurs par plateforme
-                                $config = match($platform) {
-                                    'facebook'  => ['icon' => 'fa-facebook-f', 'color' => 'bg-[#1877F2]', 'share' => "https://www.facebook.com/sharer/sharer.php?u={$currentUrl}"],
-                                    'twitter'   => ['icon' => 'fa-x-twitter',  'color' => 'bg-[#000000]', 'share' => "https://twitter.com/intent/tweet?url={$currentUrl}&text={$articleTitle}"],
-                                    'linkedin'  => ['icon' => 'fa-linkedin-in', 'color' => 'bg-[#0077b5]', 'share' => "https://www.linkedin.com/sharing/share-offsite/?url={$currentUrl}"],
-                                    'whatsapp'  => ['icon' => 'fa-whatsapp',    'color' => 'bg-[#25D366]', 'share' => "https://api.whatsapp.com/send?text={$articleTitle}%20{$currentUrl}"],
-                                    'youtube'   => ['icon' => 'fa-youtube',     'color' => 'bg-[#FF0000]', 'share' => null], // Pas de partage direct sur YouTube
-                                    default     => ['icon' => 'fa-share-alt',   'color' => 'bg-emerald-500', 'share' => null],
-                                };
-                            @endphp
-
-                            @if($config['share'])
-                                <a href="{{ $config['share'] }}"
-                                target="_blank"
-                                onclick="window.open(this.href, 'share-dialog', 'width=600,height=400'); return false;"
-                                class="w-11 h-11 rounded-full {{ $config['color'] }} text-white flex items-center justify-center transition-transform hover:scale-110 shadow-lg shadow-black/10"
-                                title="Partager sur {{ ucfirst($platform) }}">
-                                    <i class="fab {{ $config['icon'] }} text-lg"></i>
-                                </a>
-                            @endif
-                        @endforeach
-
                         {{-- Bouton Copier le lien (optionnel mais très utile) --}}
                         <button onclick="copyToClipboard()"
                                 class="w-11 h-11 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center transition-transform hover:scale-110 shadow-lg shadow-black/5"

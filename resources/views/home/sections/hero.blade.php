@@ -15,10 +15,10 @@
         <div class="absolute inset-0 z-30 flex items-center bg-linear-to-r from-slate-900/80 to-transparent">
             <div class="container mx-auto px-12">
                 <div id="slide-content" class="max-w-xl transition-all duration-700 transform translate-y-0 opacity-100">
-                    <span id="slide-tag" class="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">Expertise</span>
-                    <h2 id="slide-title" class="text-5xl font-black text-white mb-6 leading-tight">Archivage Physique de Haute Sécurité</h2>
-                    <p id="slide-desc" class="text-gray-300 text-lg mb-8">Nous protégeons l'intégrité de vos documents historiques.</p>
-                    <a href="#" class="inline-block bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-500 transition-colors">Découvrir nos solutions</a>
+                    <span id="slide-tag" class="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-4 block">{{ __('home.slide1_tag') }}</span>
+                    <h2 id="slide-title" class="text-5xl font-black text-white mb-6 leading-tight">{{ __('home.slide1_title') }}</h2>
+                    <p id="slide-desc" class="text-gray-300 text-lg mb-8">{{ __('home.slide1_desc') }}</p>
+                    <a href="#home_services" class="inline-block bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-500 transition-colors">{{ __('home.hero_button') }}</a>
                 </div>
             </div>
         </div>
