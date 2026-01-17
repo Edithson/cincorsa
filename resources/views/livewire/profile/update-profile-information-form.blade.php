@@ -51,39 +51,39 @@ $sendVerification = function () {
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+            {{ __('Information de profil') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Mettre à jour les informations de votre profil et votre adresse email.") }}
         </p>
     </header>
 
     <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <label for="name" class="block text-sm font-bold text-slate-700 mb-2">Nom</label>
+            <input wire:model="name" id="name" name="name" type="text" required autofocus autocomplete="name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all">
+            <x-input-error class="text-red-500 text-xs mt-1" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <label for="email" class="block text-sm font-bold text-slate-700 mb-2">Email</label>
+            <input wire:model="email" id="email" name="email" type="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all" required autocomplete="username" />
+            <x-input-error class="text-red-500 text-xs mt-1" :messages="$errors->get('email')" />
 
             @if (auth()->user() instanceof MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Your email address is unverified.') }}
+                        {{ __('Votre adresse email n\'est pas vérifiée.') }}
 
-                        <button wire:click.prevent="sendVerification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Click here to re-send the verification email.') }}
+                        <button wire:click.prevent="sendVerification" class="flex items-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-all shadow-lg active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed">
+                            {{ __('Cliquez ici pour renvoyer l\'email de vérification.') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
                         <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('A new verification link has been sent to your email address.') }}
+                            {{ __('Un nouveau lien de vérification a été envoyé à votre adresse email.') }}
                         </p>
                     @endif
                 </div>
@@ -91,10 +91,10 @@ $sendVerification = function () {
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button class="flex items-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-all shadow-lg active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed">{{ __('Enregistrer') }}</x-primary-button>
 
-            <x-action-message class="me-3" on="profile-updated">
-                {{ __('Saved.') }}
+            <x-action-message class="me-3 text-green-600" on="profile-updated">
+                {{ __('Enregistré.') }}
             </x-action-message>
         </div>
     </form>

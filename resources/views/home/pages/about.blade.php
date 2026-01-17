@@ -256,14 +256,7 @@
     </style>
 
 <!-- Hero Section -->
-    <section id="apropos" class="about-hero pt-32 pb-20 relative">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">À Propos de CINV-CORSA</h1>
-            <p class="text-lg md:text-xl lg:text-2xl text-green-50 max-w-3xl mx-auto leading-relaxed">
-                Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 15 ans
-            </p>
-        </div>
-    </section>
+    @include('home.sections.hero_about')
 
     <!-- Introduction & Stats -->
     <section class="py-20 bg-white">
@@ -273,7 +266,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">Qui sommes-nous ?</h2>
                 <div class="space-y-5 text-gray-600 text-lg leading-relaxed">
                     <p>
-                        <strong class="text-green-600 font-semibold">CINV-CORSA</strong> est le leader incontesté de
+                        <strong class="text-green-600 font-semibold">{{ $siteName }}</strong> est le leader incontesté de
                         l'ingénierie documentaire en Afrique noire francophone. Nous proposons une offre intégrée
                         complète incluant l'archivage manuel, l'archivage électronique, des logiciels GEIDE et des
                         solutions de dématérialisation.
@@ -322,7 +315,7 @@
                 <div class="order-2 lg:order-1">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre Mission</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        <strong class="text-green-600">CINV-CORSA</strong> s'engage à transformer la gestion
+                        <strong class="text-green-600">{{ $siteName }}</strong> s'engage à transformer la gestion
                         documentaire des entreprises africaines en proposant des solutions innovantes, sécurisées et
                         conformes aux normes internationales.
                     </p>
@@ -331,12 +324,12 @@
                         connaissance des réglementations locales et approche organisationnelle adaptée aux réalités du
                         terrain.
                     </p>
-                    <a href="index.html#contact" class="btn-primary">Contactez-nous</a>
+                    <a href="{{ route('contact') }}" class="btn-primary">Contactez-nous</a>
                 </div>
                 <div class="order-1 lg:order-2">
                     <div
                         class="w-full h-96 bg-gradient-to-br from-green-100 to-pink-100 rounded-3xl shadow-2xl flex items-center justify-center p-2">
-                        <img class="w-full h-full rounded-3xl" src="/media/img/image.png" alt="">
+                        <img class="w-full h-full rounded-3xl" src="{{ asset('media/img/socials/formation.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -426,7 +419,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3 class="text-2xl font-bold text-green-600 mb-2">2008</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Création de CINV-CORSA</h4>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Création de {{ $siteName }}</h4>
                         <p class="text-gray-600">
                             Lancement de nos activités d'archivage manuel à Yaoundé, avec une vision claire : devenir le
                             leader de la gestion documentaire en Afrique francophone.
@@ -476,7 +469,7 @@
                         <h3 class="text-2xl font-bold text-green-600 mb-2">2023</h3>
                         <h4 class="text-xl font-semibold text-gray-800 mb-3">Leader reconnu du marché</h4>
                         <p class="text-gray-600">
-                            CINV-CORSA s'impose comme le leader incontesté de l'ingénierie documentaire en Afrique
+                            {{ $siteName }} s'impose comme le leader incontesté de l'ingénierie documentaire en Afrique
                             francophone avec plus de 200 clients et 50K+ documents gérés.
                         </p>
                     </div>
@@ -583,11 +576,11 @@
                 transformer votre entreprise.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="index.html#contact"
+                <a href="{{ route('contact') }}"
                     class="bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition-all duration-300 inline-block shadow-xl">
                     Demander un devis gratuit
                 </a>
-                <a href="index.html#services"
+                <a href="{{ route('service') }}"
                     class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 inline-block">
                     Voir nos services
                 </a>

@@ -29,7 +29,7 @@ $logout = function () {
                     <button @click="open = !open" @click.away="open = false" class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-all focus:outline-none">
                         <div class="text-right hidden md:block">
                             <p class="text-sm font-bold text-slate-900">{{ Auth::user()->name }}</p>
-                            <p class="text-xs text-slate-500 text-emerald-600">Administrateur</p>
+                            <p class="text-xs text-slate-500 text-emerald-600">{{ Auth::user()->email }}</p>
                         </div>
                         <div class="h-10 w-10 rounded-full bg-emerald-100 border-2 border-emerald-500 flex items-center justify-center text-emerald-700 font-bold shadow-sm">
                             {{ substr(Auth::user()->name, 0, 1) }}
@@ -54,7 +54,7 @@ $logout = function () {
                         </div>
 
                         <div class="p-2 space-y-1">
-                            <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition-colors group">
+                            <a href="{{route('profile')}}" class="flex items-center gap-3 px-3 py-2 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition-colors group">
                                 <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
                                 Paramètres Profil
                             </a>

@@ -134,7 +134,7 @@ $login = function () {
             </form>
 
             <p class="mt-8 text-center text-sm text-slate-500">
-                Pas encore de compte ? <a href="{{ route('register') }}" class="text-emerald-600 font-bold hover:underline">Contactez l'administrateur</a>
+                Pas encore de compte ? <a href="{{ route('register') }}" class="text-emerald-600 font-bold hover:underline">Créer un compte</a>
             </p>
         </div>
     </div>

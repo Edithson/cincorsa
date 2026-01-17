@@ -19,7 +19,7 @@
     }
 </style>
 
-<section class="py-20 bg-slate-50">
+<section class="py-20 bg-slate-50" id="home_services">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-black text-slate-900 mb-4">Nos Domaines d'Expertise</h2>
@@ -32,19 +32,19 @@
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
 
                     <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl overflow-hidden shadow-lg">
-                        <img src="/media/img/services/image2.jpg" class="w-full h-full object-cover">
+                        <img src="/media/img/services/image2.png" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent flex items-end p-8">
                             <h3 class="text-xl font-bold text-white uppercase tracking-wider">Archivage Physique</h3>
                         </div>
                     </div>
 
-                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-emerald-600 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
+                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-slate-900 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
                         <div class="mb-4 text-4xl">📦</div>
                         <h3 class="text-xl font-bold mb-4">Gestion des Stocks</h3>
                         <p class="text-sm text-emerald-50 leading-relaxed mb-6">
                             Tri, dépoussiérage, inventaire et conservation sécurisée de vos archives papier selon les normes internationales.
                         </p>
-                        <a href="/services/physique" class="bg-white text-emerald-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-50 transition-colors">En savoir plus</a>
+                        <a href="{{ route('service') }}#physique" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">En savoir plus</a>
                     </div>
 
                 </div>
@@ -64,7 +64,7 @@
                         <p class="text-sm text-slate-300 leading-relaxed mb-6">
                             Capture haute définition et reconnaissance optique (OCR) pour transformer vos flux papier en données exploitables.
                         </p>
-                        <a href="/services/numerique" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">En savoir plus</a>
+                        <a href="{{ route('service') }}#electronique" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -77,13 +77,13 @@
                             <h3 class="text-xl font-bold text-white uppercase tracking-wider">GEIDE</h3>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-blue-600 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
+                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-slate-900 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
                         <div class="mb-4 text-4xl">📋</div>
                         <h3 class="text-xl font-bold mb-4">GEIDE</h3>
                         <p class="text-sm text-blue-50 leading-relaxed mb-6">
                             Logiciels de Gestion Électronique des Informations et Documents d'Entreprise adaptés à vos besoins.
                         </p>
-                        <a href="{{route('service')}}" class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-blue-50 transition-colors">En savoir plus</a>
+                        <a href="{{route('service')}}#logiciel" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -93,16 +93,16 @@
                     <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl overflow-hidden shadow-lg">
                         <img src="/media/img/services/solution-sae.jpeg" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent flex items-end p-8">
-                            <h3 class="text-xl font-bold text-white uppercase tracking-wider">Solutions SAE</h3>
+                            <h3 class="text-xl font-bold text-white uppercase tracking-wider">Dématerialisation</h3>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-purple-600 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
+                    <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-slate-900 flex flex-col items-center justify-center p-8 text-center text-white shadow-xl">
                         <div class="mb-4 text-4xl">🛡️</div>
-                        <h3 class="text-xl font-bold mb-4">Coffre-fort Digital</h3>
+                        <h3 class="text-xl font-bold mb-4">Dématerialisation</h3>
                         <p class="text-sm text-purple-50 leading-relaxed mb-6">
-                            Mise en place de Systèmes d'Archivage Électronique à valeur probante pour sécuriser vos données critiques.
+                            Passez au numérique avec notre service de dématérialisation complet, réduisez les coûts et améliorez l'efficacité opérationnelle.
                         </p>
-                        <a href="/services/sae" class="bg-white text-purple-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-purple-50 transition-colors">En savoir plus</a>
+                        <a href="{{ route('service') }}#dematerialisation" class="bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">En savoir plus</a>
                     </div>
                 </div>
             </div>

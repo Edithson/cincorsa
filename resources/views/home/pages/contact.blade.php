@@ -67,7 +67,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 px-10 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 

@@ -10,7 +10,12 @@ class HomeController extends Controller
     // Loading homepage
     public function index()
     {
-        return view('home.pages.home');
+        $articles = Article::where('public', true)
+                        ->with('user')
+                        ->latest()
+                        ->take(3)
+                        ->get();
+        return view('home.pages.home', compact('articles'));
     }
 
     public function list_articles()
