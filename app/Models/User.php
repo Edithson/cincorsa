@@ -7,6 +7,7 @@ use App\Models\Article;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Enums\AccessLevel;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'permissions',
     ];
 
     /**
@@ -44,6 +46,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'permissions' => 'array', // Cast 'permissions' as an array
         ];
     }
 
@@ -51,5 +54,22 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    //méthode de vérification des permissions
+    public function hasPermission(string $feature, AccessLevel $level): bool
+    {
+        $userPerm = $this->permissions[$feature] ?? 'none';
+
+        // Logique de hiérarchie simple ou stricte
+        if ($level === AccessLevel::FULL) {
+            return $userPerm === AccessLevel::FULL->value;
+        }
+
+        if ($level === AccessLevel::AUTHOR) {
+            return in_array($userPerm, [AccessLevel::AUTHOR->value, AccessLevel::FULL->value]);
+        }
+
+        return $userPerm !== AccessLevel::NONE->value;
     }
 }

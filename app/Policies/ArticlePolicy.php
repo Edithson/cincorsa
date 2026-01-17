@@ -29,6 +29,7 @@ class ArticlePolicy
      */
     public function create(User $user): bool
     {
+        return $user->hasPermission('articles', AccessLevel::AUTHOR);
         return false;
     }
 
@@ -37,6 +38,13 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article): bool
     {
+        $perm = $user->permissions['articles'] ?? 'none';
+
+        if ($perm === 'full') return true;
+
+        if ($perm === 'author') {
+            return $user->id === $article->user_id;
+        }
         return false;
     }
 
