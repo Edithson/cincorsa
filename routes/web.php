@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
@@ -24,10 +25,13 @@ Route::get('/faq', FaqController::class . '@index')->name('faq');
 //protected routes
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/users/create', UserController::class . '@create')->name('user.create');
+    Route::get('/admin/users/{user}', UserController::class . '@edit')->name('user.edit');
     Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
     Route::resource('/admin/articles', ArticleController::class)->middleware('auth');
     Route::get('/admin/settings', SettingController::class . '@index')->name('settings.index');
     Route::get('/admin/contact', ContactController::class . '@index_admin')->name('admin.contact.index');
+    Route::get('/admin/users', UserController::class . '@index')->name('user.index');
 });
 
 Route::view('dashboard', 'dashboard')

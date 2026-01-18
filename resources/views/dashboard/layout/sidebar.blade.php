@@ -47,6 +47,13 @@ $logout = function () {
             </svg>
             Contacts
         </a>
+        <a id="menu_users" href="{{ route('user.index') }}"
+            class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Utilisateurs
+        </a>
         @if(auth()->user()->permissions['settings'] === 'full')
         <a id="menu_settings" href="{{ route('settings.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
