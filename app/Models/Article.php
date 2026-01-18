@@ -32,7 +32,7 @@ class Article extends Model
                 $slug = Str::slug($article->title);
 
                 // Vérification de l'unicité du slug
-                $count = static::where('slug', 'like', "$slug%")->count();
+                $count = static::withTrashed()->where('slug', 'like', "$slug%")->count();
                 $article->slug = $count ? "{$slug}-{$count}" : $slug;
             }
         });

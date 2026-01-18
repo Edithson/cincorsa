@@ -30,6 +30,7 @@ $logout = function () {
             </svg>
             Tableau de bord
         </a>
+        @if(auth()->user()->permissions['articles'] === 'full' || auth()->user()->permissions['articles'] === 'view' || auth()->user()->permissions['articles'] === 'author')
         <a id="menu_articles" href="{{ route('articles.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,6 +39,8 @@ $logout = function () {
             </svg>
             Articles Blog
         </a>
+        @endif
+        @if(auth()->user()->permissions['contacts'] === 'full' || auth()->user()->permissions['contacts'] === 'view')
         <a id="menu_contact" href="{{ route('admin.contact.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,6 +50,8 @@ $logout = function () {
             </svg>
             Contacts
         </a>
+        @endif
+        @if(auth()->user()->permissions['profile'] === 'full' || auth()->user()->permissions['profile'] === 'view')
         <a id="menu_users" href="{{ route('user.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +59,8 @@ $logout = function () {
             </svg>
             Utilisateurs
         </a>
-        @if(auth()->user()->permissions['settings'] === 'full')
+        @endif
+        @if(auth()->user()->permissions['settings'] === 'full' || auth()->user()->permissions['settings'] === 'view')
         <a id="menu_settings" href="{{ route('settings.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

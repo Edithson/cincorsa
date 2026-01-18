@@ -5,6 +5,7 @@ use Livewire\WithFileUploads;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Enums\AccessLevel;
 
 new class extends Component {
     use WithFileUploads;
@@ -16,6 +17,12 @@ new class extends Component {
 
     public function save()
     {
+        //vérification des autorisations et validation des données
+        if (auth()->user()->cannot('create', Article::class)) {
+            return redirect()->route('articles.index')
+                ->with('error', "Vous n'avez pas les permissions nécessaires pour créer un article.");
+        }
+
         // 1. Validation
         $this->validate([
             'title' => 'required|min:5|max:255',
@@ -28,13 +35,20 @@ new class extends Component {
             ? $this->picture->store('articles', 'public')
             : null;
 
+        // 3. Gestion de la sécurité sur la publication
+        // Seul un utilisateur avec FULL peut décider du statut 'public'
+        // Les autres (AUTHOR) voient leur article forcé à 'false' (en attente)
+        $isPublic = auth()->user()->hasPermission('articles', AccessLevel::FULL)
+                    ? $this->public
+                    : false;
+
         // 3. Création en base de données
         // L'ID et le Slug sont gérés par le modèle Article
         Article::create([
             'title' => $this->title,
             'content' => $this->content,
             'picture' => $path,
-            'public' => $this->public,
+            'public' => $isPublic,
             'user_id' => Auth::id(), //
         ]);
 
@@ -110,15 +124,30 @@ new class extends Component {
     <textarea x-ref="tinydisplay"></textarea>
 </div>
 
-        <div class="flex items-center gap-3">
-            <button type="button"
-                @click="$wire.public = !$wire.public"
-                :class="$wire.public ? 'bg-emerald-600' : 'bg-slate-300'"
-                class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none">
-                <span :class="$wire.public ? 'translate-x-6' : 'translate-x-1'" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
-            </button>
-            <span class="text-sm font-medium text-slate-700">Rendre l'article public</span>
-        </div>
+        {{-- Vérification du droit FULL pour le module 'articles' --}}
+        @if(auth()->user()->hasPermission('articles', \App\Enums\AccessLevel::FULL))
+            <div class="flex items-center gap-3">
+                <button type="button"
+                    @click="$wire.public = !$wire.public"
+                    :class="$wire.public ? 'bg-emerald-600' : 'bg-slate-300'"
+                    class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none">
+                    <span :class="$wire.public ? 'translate-x-6' : 'translate-x-1'" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
+                </button>
+                <span class="text-sm font-medium text-slate-700">Rendre l'article public</span>
+            </div>
+        @else
+            <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                <div class="relative inline-flex h-6 w-11 items-center rounded-full bg-slate-200 cursor-not-allowed">
+                    <span class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white"></span>
+                </div>
+                <div>
+                    <span class="block text-sm font-bold text-slate-500">Publication restreinte</span>
+                    <span class="block text-xs text-slate-400">Votre article sera soumis à validation avant d'être publié.</span>
+                </div>
+                {{-- On s'assure que la propriété Livewire reste à false pour la sécurité visuelle --}}
+                <div x-init="$wire.public = false"></div>
+            </div>
+        @endif
 
         <div class="flex justify-end pt-4">
             <button type="submit"

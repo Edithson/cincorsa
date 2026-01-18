@@ -35,7 +35,6 @@ new class extends Component {
         $data = [
             'title' => $this->title,
             'content' => $this->content,
-            'public' => $this->public,
         ];
 
         if ($this->newPicture) {
@@ -45,6 +44,11 @@ new class extends Component {
             }
             $data['picture'] = $this->newPicture->store('articles', 'public');
         }
+
+        $isPublic = auth()->user()->hasPermission('articles', AccessLevel::FULL)
+                    ? $this->public
+                    : false;
+        $data['public'] = $isPublic;
 
         $this->article->update($data);
 
@@ -97,12 +101,27 @@ new class extends Component {
             <textarea x-ref="tinydisplay"></textarea>
         </div>
 
-        <div class="flex items-center gap-3">
-            <button type="button" @click="$wire.public = !$wire.public" :class="$wire.public ? 'bg-emerald-600' : 'bg-slate-300'" class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors">
-                <span :class="$wire.public ? 'translate-x-6' : 'translate-x-1'" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
-            </button>
-            <span class="text-sm font-medium">Article public</span>
-        </div>
+        {{-- Vérification du droit FULL pour le module 'articles' --}}
+        @if(auth()->user()->hasPermission('articles', \App\Enums\AccessLevel::FULL))
+            <div class="flex items-center gap-3">
+                <button type="button" @click="$wire.public = !$wire.public" :class="$wire.public ? 'bg-emerald-600' : 'bg-slate-300'" class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors">
+                    <span :class="$wire.public ? 'translate-x-6' : 'translate-x-1'" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
+                </button>
+                <span class="text-sm font-medium">Article public</span>
+            </div>
+        @else
+            <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                <div class="relative inline-flex h-6 w-11 items-center rounded-full bg-slate-200 cursor-not-allowed">
+                    <span class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white"></span>
+                </div>
+                <div>
+                    <span class="block text-sm font-bold text-slate-500">Publication restreinte</span>
+                    <span class="block text-xs text-slate-400">Votre article sera soumis à validation avant d'être publié.</span>
+                </div>
+                {{-- On s'assure que la propriété Livewire reste à false pour la sécurité visuelle --}}
+                <div x-init="$wire.public = false"></div>
+            </div>
+        @endif
 
         <div class="flex justify-end gap-3 pt-4 border-t">
             <a href="{{ route('articles.index') }}" class="px-6 py-3 text-slate-500 font-bold">Annuler</a>

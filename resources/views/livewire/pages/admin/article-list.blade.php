@@ -140,6 +140,7 @@ new class extends Component {
 
 <script>
 function confirmDelete(id, title) {
+
     Swal.fire({
         title: 'Êtes-vous sûr ?',
         text: `L'article "${title}" sera définitivement supprimé !`,

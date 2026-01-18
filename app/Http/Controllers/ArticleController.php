@@ -48,6 +48,10 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        if (auth()->user()->cannot('update', $article)) {
+            return redirect()->route('articles.index')
+                ->with('error', "Vous n'avez pas les permissions nécessaires pour modifier cet article.");
+        }
         return view('dashboard.pages.article.edit', compact('article'));
     }
 
@@ -64,6 +68,11 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        if (auth()->user()->cannot('delete', $article)) {
+            return redirect()->route('articles.index')
+                ->with('error', "Vous n'avez pas les permissions nécessaires pour supprimer cet article.");
+        }
+
         // 1. Suppression de l'image sur le disque si elle existe
         if ($article->picture) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($article->picture);
