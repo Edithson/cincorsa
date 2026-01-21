@@ -49,4 +49,8 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('lang.switch');
 
+Route::get('/debug-sentry', function () {
+    throw new Exception("Test de Sentry avec debug à false ! Ça fonctionne !");
+});
+
 require __DIR__.'/auth.php';
