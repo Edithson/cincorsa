@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
     Route::resource('/admin/articles', ArticleController::class)->middleware('auth');
     Route::get('/admin/settings', SettingController::class . '@index')->name('settings.index');
-    Route::get('/admin/contact', ContactController::class . '@index_admin')->name('admin.contact.index');
+    Route::get('/admin/contact', ContactController::class . '@index_admin')->middleware('can:viewAny,App\Models\Contact')->name('admin.contact.index');
     Route::get('/admin/users', UserController::class . '@index')->name('user.index');
 });
 
