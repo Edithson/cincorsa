@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Sentry\State\Scope;
 use function Sentry\configureScope;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +30,15 @@ class AppServiceProvider extends ServiceProvider
                 }
             });
         }
+        // On partage ces variables uniquement avec les vues situées dans le dossier 'errors'
+        View::composer('errors::*', function ($view) {
+            $isAdmin = Request::is('admin') || Request::is('admin/*');
+
+            $view->with([
+                'isAdmin' => $isAdmin,
+                'homeRoute' => $isAdmin ? route('admin_dashboard') : route('home'),
+                'homeLabel' => $isAdmin ? 'Retour au tableau de bord' : "Retour à l'accueil",
+            ]);
+        });
     }
 }

@@ -1,3 +1,12 @@
+@php
+    // On vérifie si l'URL commence par 'admin'
+    $isAdmin = request()->is('admin') || request()->is('admin/*');
+
+    // On définit la route et le label selon le contexte
+    $homeRoute = $isAdmin ? route('admin_dashboard') : route('home');
+    $homeLabel = $isAdmin ? 'Retour au tableau de bord' : "Retour à l'accueil";
+
+@endphp
 <!DOCTYPE html>
 <html lang="fr">
 <head>

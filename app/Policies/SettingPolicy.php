@@ -2,8 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Setting;
 use App\Models\User;
+use App\Models\Setting;
+use App\Enums\AccessLevel;
 use Illuminate\Auth\Access\Response;
 
 class SettingPolicy
@@ -13,7 +14,7 @@ class SettingPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->hasPermission('settings', AccessLevel::VIEW);
     }
 
     /**
@@ -29,7 +30,7 @@ class SettingPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->hasPermission('settings', AccessLevel::FULL);
     }
 
     /**
@@ -37,7 +38,7 @@ class SettingPolicy
      */
     public function update(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('settings', AccessLevel::FULL);
     }
 
     /**

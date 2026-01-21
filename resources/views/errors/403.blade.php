@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="min-h-[70vh] flex flex-col items-center justify-center p-6 text-center">
+    <h1 class="text-9xl font-bold text-slate-200">403</h1>
     {{-- Illustration ou Icône --}}
     <div class="w-24 h-24 bg-red-50 text-red-500 rounded-3xl flex items-center justify-center mb-6 shadow-sm border border-red-100">
         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,8 +23,8 @@
         <a href="{{ url()->previous() }}" class="px-6 py-3 rounded-xl font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all">
             Retourner en arrière
         </a>
-        <a href="{{ route('admin_dashboard') }}" class="px-6 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-500/20">
-            Tableau de bord
+        <a href="{{ $homeRoute }}" class="px-6 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-500/20">
+            {{ $homeLabel }}
         </a>
     </div>
 </div>

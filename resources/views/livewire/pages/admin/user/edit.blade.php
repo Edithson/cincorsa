@@ -39,6 +39,7 @@ new class extends Component {
      */
     public function updateProfileInformation()
     {
+        $this->authorize('update', $this->user);
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email,' . $this->user->id],
@@ -54,6 +55,7 @@ new class extends Component {
      */
     public function updatePassword()
     {
+        $this->authorize('update', $this->user);
         $validated = $this->validate([
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -71,6 +73,7 @@ new class extends Component {
      */
     public function updatePermissions()
     {
+        $this->authorize('update', $this->user);
         // On s'assure que les valeurs correspondent aux Enums (exemple simplifié)
         $this->user->update([
             'permissions' => $this->permissions
@@ -84,6 +87,7 @@ new class extends Component {
      */
     public function deleteUser()
     {
+        $this->authorize('delete', $this->user);
         $this->user->delete();
         return $this->redirect(route('user.index'), navigate: true);
     }

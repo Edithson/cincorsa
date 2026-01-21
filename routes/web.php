@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
@@ -25,13 +27,13 @@ Route::get('/faq', FaqController::class . '@index')->name('faq');
 //protected routes
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/users/create', UserController::class . '@create')->name('user.create');
-    Route::get('/admin/users/{user}', UserController::class . '@edit')->name('user.edit');
+    Route::get('/admin/users', UserController::class . '@index')->middleware('can:viewAny,' . User::class)->name('user.index');
+    Route::get('/admin/users/create', UserController::class . '@create')->middleware('can:create,' . User::class)->name('user.create');
+    Route::get('/admin/users/{user}', UserController::class . '@edit')->middleware('can:update,user')->name('user.edit');
     Route::get('/admin/dashboard', DahsboardController::class . '@index')->name('admin_dashboard');
     Route::resource('/admin/articles', ArticleController::class)->middleware('auth');
-    Route::get('/admin/settings', SettingController::class . '@index')->name('settings.index');
-    Route::get('/admin/contact', ContactController::class . '@index_admin')->middleware('can:viewAny,App\Models\Contact')->name('admin.contact.index');
-    Route::get('/admin/users', UserController::class . '@index')->name('user.index');
+    Route::get('/admin/settings', SettingController::class . '@index')->middleware('can:viewAny,' . Setting::class)->name('settings.index');
+    Route::get('/admin/contact', ContactController::class . '@index_admin')->name('admin.contact.index');
 });
 
 Route::view('dashboard', 'dashboard')

@@ -45,6 +45,8 @@ new class extends Component {
 
     public function save()
     {
+        $this->authorize('create', Setting::class);
+
         $this->validate([
             'logo' => 'nullable|image|max:1024',
             'name' => 'required|string',
@@ -171,11 +173,13 @@ new class extends Component {
             </div>
         </div>
 
+        @can('create', Setting::class)
         <div class="md:col-span-3 flex justify-end">
             <button type="submit" class="bg-slate-900 text-white px-10 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-all shadow-lg active:scale-95">
                 Sauvegarder les modifications
             </button>
         </div>
+        @endcan
     </form>
 </div>
 

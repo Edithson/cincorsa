@@ -4,6 +4,7 @@ use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
+use App\Enums\AccessLevel;
 
 new class extends Component {
     use WithFileUploads;
@@ -26,6 +27,11 @@ new class extends Component {
 
     public function update()
     {
+        if (auth()->user()->cannot('update', $this->article)) {
+            return redirect()->route('articles.index')
+                ->with('error', "Vous n'avez pas les permissions nécessaires pour mettre à jour cet article.");
+        }
+
         $this->validate([
             'title' => 'required|min:5|max:255',
             'content' => 'required',

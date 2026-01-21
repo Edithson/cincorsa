@@ -15,7 +15,6 @@ class ContactPolicy
     public function viewAny(User $user): bool
     {
         return $user->hasPermission('contacts', AccessLevel::FULL);
-        return false;
     }
 
     /**

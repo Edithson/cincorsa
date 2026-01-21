@@ -31,7 +31,6 @@ class ArticlePolicy
     public function create(User $user): bool
     {
         return $user->hasPermission('articles', AccessLevel::AUTHOR);
-        return false;
     }
 
     /**
