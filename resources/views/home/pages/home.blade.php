@@ -11,6 +11,7 @@
     @include('home.sections.customers')
     @include('home.sections.partners')
     @include('home.sections.industrial_process')
+    @include('home.sections.laws')
     @include('home.sections.cta')
 
     <script src="{{ asset('js/home/slide_home.js') }}"></script>

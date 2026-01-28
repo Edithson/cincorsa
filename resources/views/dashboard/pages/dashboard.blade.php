@@ -135,4 +135,32 @@
 
     </div>
 
+    <script>
+        function confirmDelete(id, title) {
+
+            Swal.fire({
+                title: 'Êtes-vous sûr ?',
+                text: `L'article "${title}" sera définitivement supprimé !`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#10b981', // emerald-500
+                cancelButtonColor: '#64748b',  // slate-500
+                confirmButtonText: 'Oui, supprimer !',
+                cancelButtonText: 'Annuler',
+                background: '#ffffff',
+                borderRadius: '1.25rem',
+                customClass: {
+                    popup: 'rounded-3xl',
+                    confirmButton: 'rounded-xl font-bold px-6 py-3',
+                    cancelButton: 'rounded-xl font-bold px-6 py-3'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si l'utilisateur confirme, on soumet le formulaire
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            })
+        }
+    </script>
+
 @endsection

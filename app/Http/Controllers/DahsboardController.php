@@ -18,7 +18,7 @@ class DahsboardController extends Controller
             'public'  => Article::where('public', true)->count(),
             'draft'   => Article::where('public', false)->count(),
             'latest'  => Article::latest()->take(5)->get(),
-            'this_month' => Article::whereMonth('created_at', now()->month)->count(),
+            'this_month' => Article::whereMonth('created_at', now()->month)->where('public', true)->count(),
         ];
 
         $stats_contact = [

@@ -81,7 +81,8 @@ class ArticleController extends Controller
         // 2. Suppression de l'entrée en base de données
         $article->delete();
 
-        return redirect()->route('articles.index')->with('status', 'Article supprimé définitivement.');
+        return redirect()->to(url()->previous())
+        ->with('status', 'Article supprimé définitivement.');
 
     }
 }
