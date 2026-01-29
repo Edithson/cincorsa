@@ -30,6 +30,7 @@ $logout = function () {
             </svg>
             Tableau de bord
         </a>
+        @if(auth()->user()->permissions['articles'] === 'full' || auth()->user()->permissions['articles'] === 'view' || auth()->user()->permissions['articles'] === 'author')
         <a id="menu_articles" href="{{ route('articles.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,6 +39,8 @@ $logout = function () {
             </svg>
             Articles Blog
         </a>
+        @endif
+        @if(auth()->user()->permissions['contacts'] === 'full' || auth()->user()->permissions['contacts'] === 'view')
         <a id="menu_contact" href="{{ route('admin.contact.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +50,26 @@ $logout = function () {
             </svg>
             Contacts
         </a>
-        @if(auth()->user()->permissions['settings'] === 'full')
+        @endif
+        @if(auth()->user()->permissions['laws'] === 'full' || auth()->user()->permissions['laws'] === 'view')
+        <a id="menu_laws" href="{{ route('laws.index_admin') }}"
+            class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Lois
+        </a>
+        @endif
+        @if(auth()->user()->permissions['profile'] === 'full' || auth()->user()->permissions['profile'] === 'view')
+        <a id="menu_users" href="{{ route('user.index') }}"
+            class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Utilisateurs
+        </a>
+        @endif
+        @if(auth()->user()->permissions['settings'] === 'full' || auth()->user()->permissions['settings'] === 'view')
         <a id="menu_settings" href="{{ route('settings.index') }}"
             class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

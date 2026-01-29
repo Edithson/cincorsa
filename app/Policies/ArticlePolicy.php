@@ -2,8 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Article;
 use App\Models\User;
+use App\Models\Article;
+use App\Enums\AccessLevel;
 use Illuminate\Auth\Access\Response;
 
 class ArticlePolicy
@@ -30,7 +31,6 @@ class ArticlePolicy
     public function create(User $user): bool
     {
         return $user->hasPermission('articles', AccessLevel::AUTHOR);
-        return false;
     }
 
     /**
@@ -53,6 +53,13 @@ class ArticlePolicy
      */
     public function delete(User $user, Article $article): bool
     {
+        $perm = $user->permissions['articles'] ?? 'none';
+
+        if ($perm === 'full') return true;
+
+        if ($perm === 'author') {
+            return $user->id === $article->user_id;
+        }
         return false;
     }
 

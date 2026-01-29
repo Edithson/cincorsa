@@ -26,6 +26,47 @@
         </main>
         @include('dashboard.layout.footer')
     </div>
+
+    <script>
+        // Configuration de base pour les toasts (petites alertes en haut à droite)
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
+
+        // 1. Écouter les messages Flash de Laravel (Session)
+        @if(session('success'))
+            Toast.fire({ icon: 'success', title: "{{ session('success') }}" });
+        @endif
+
+        @if(session('error'))
+            Swal.fire({ icon: 'error', title: 'Accès refusé', text: "{{ session('error') }}", confirmButtonColor: '#10b981' });
+        @endif
+
+        @if(session('warning'))
+            Toast.fire({ icon: 'warning', title: "{{ session('warning') }}" });
+        @endif
+
+        // 2. Écouter les événements Livewire (pour Volt)
+        window.addEventListener('swal:modal', event => {
+            Swal.fire({
+                icon: event.detail[0].type,
+                title: event.detail[0].title,
+                text: event.detail[0].text,
+                confirmButtonColor: '#10b981',
+            });
+        });
+
+        window.addEventListener('swal:toast', event => {
+            Toast.fire({
+                icon: event.detail[0].type,
+                title: event.detail[0].title
+            });
+        });
+    </script>
 </body>
 
 <script src="{{ asset('js/dashboard/script.js') }}"></script>

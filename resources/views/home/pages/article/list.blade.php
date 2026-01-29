@@ -21,6 +21,7 @@
                     <div class="blog-image-container">
                         <div class="blog-image h-56 flex items-center justify-center">
                             @if($article->picture)
+                            {{-- Vérifier que l'image existe dans le stockage du serveur --}}
                                 <img src="{{ asset('storage/' . $article->picture) }}"
                                         alt="{{ $article->title }}"
                                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">

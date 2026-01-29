@@ -104,9 +104,12 @@ new class extends Component {
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="flex justify-end gap-2">
+                                @can('update', $article)
                                 <a href="{{ route('articles.edit', $article) }}" class="p-2 text-slate-400 hover:text-emerald-600 transition-colors">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                 </a>
+                                @endcan
+                                @can('delete', $article)
                                 <form id="delete-form-{{ $article->id }}" action="{{ route('articles.destroy', $article) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
@@ -118,6 +121,7 @@ new class extends Component {
                                         </svg>
                                     </button>
                                 </form>
+                                @endcan
                             </div>
                         </td>
                     </tr>
@@ -140,6 +144,7 @@ new class extends Component {
 
 <script>
 function confirmDelete(id, title) {
+
     Swal.fire({
         title: 'Êtes-vous sûr ?',
         text: `L'article "${title}" sera définitivement supprimé !`,

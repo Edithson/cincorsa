@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laws;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
                         ->latest()
                         ->take(3)
                         ->get();
-        return view('home.pages.home', compact('articles'));
+        $laws = Laws::latest()->take(3)->get();
+        return view('home.pages.home', compact('articles', 'laws'));
     }
 
     public function list_articles()
