@@ -30,10 +30,10 @@
             <div class="container mx-auto px-6 relative z-10">
                 <div class="max-w-3xl">
                     <h1 class="text-5xl md:text-6xl font-black mb-6">Expertise Complète en <span
-                            class="text-emerald-400">Ingénierie Documentaire</span></h1>
+                            class="text-emerald-400">Archivage Manuel</span></h1>
                     <p class="text-xl text-gray-300 leading-relaxed">
                         De l'audit initial à la mise en place d'un coffre-fort numérique, nous accompagnons les
-                        organisations dans la maîtrise de leur patrimoine informationnel.
+                        organisations dans la maîtrise et l'exploitation de leur patrimoine informationnel.
                     </p>
                 </div>
             </div>
@@ -82,14 +82,6 @@
                                                 d="M5 13l4 4L19 7"></path>
                                         </svg></div>
                                     <span class="font-medium text-slate-700">Tri, dépoussiérage et reconditionnement</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Indexation par codes-barres</span>
                                 </li>
                                 <li class="flex items-center space-x-3">
                                     <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
@@ -246,7 +238,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7"></path>
                                         </svg></div>
-                                    <span class="font-medium text-slate-700">Sécurisation des procédures de production documentaire</span>
+                                    <span class="font-medium text-slate-700">Sécurisation des procédures d'administration documentaire</span>
                                 </li>
                                 <li class="flex items-center space-x-3">
                                     <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
@@ -369,12 +361,12 @@
                     <div class="lg:w-1/2 grid grid-cols-2 gap-4">
                         <div
                             class="bg-emerald-600 h-64 rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center">
-                            <span class="text-4xl font-black mb-2">15+</span>
+                            <span class="text-4xl font-black mb-2">25+</span>
                             <span class="text-sm font-medium uppercase tracking-widest">Ans d'Expertise</span>
                         </div>
                         <div
                             class="bg-slate-800 h-64 rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center mt-8">
-                            <span class="text-4xl font-black mb-2">200+</span>
+                            <span class="text-4xl font-black mb-2">20+</span>
                             <span class="text-sm font-medium uppercase tracking-widest">Audits Réalisés</span>
                         </div>
                     </div>

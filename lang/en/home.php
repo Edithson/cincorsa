@@ -29,7 +29,7 @@ return [
 
     //about section
     'about_title' => 'Who are we?',
-    'about_desc1' => 'is the undisputed leader in document engineering in black francophone Africa. We offer a complete integrated service including manual archiving, electronic archiving, GEIDE software and digitalization solutions.',
+    'about_desc1' => 'is the undisputed leader in manual archiving in black francophone Africa. We offer a complete integrated service including manual archiving, electronic archiving, GEIDE software and digitalization solutions.',
     'about_desc2' => 'Our expertise covers the overall management of the document lifecycle: incoming documents, submission files, internal and external documents. We master perfectly the interaction with major information systems (ERP, PLM, CRM, GMAO, messaging, intranet, extranet).',
     'about_desc3' => 'Our Electronic Archiving Systems (EAS) revolve around three essential pillars:',
     'about_desc4' => 'organizational',

@@ -289,7 +289,7 @@
             <!-- Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg">
-                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-number" data-target="25">0</div>
                     <p class="text-gray-600 font-semibold mt-2">Années d'Expérience</p>
                 </div>
                 <div class="text-center p-6 bg-gradient-to-br from-pink-50 to-white rounded-2xl shadow-lg">
@@ -316,7 +316,7 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre Mission</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
                         <strong class="text-green-600">{{ $siteName }}</strong> s'engage à transformer la gestion
-                        documentaire des entreprises africaines en proposant des solutions innovantes, sécurisées et
+                        documentaire des organisations africaines en proposant des solutions innovantes, sécurisées et
                         conformes aux normes internationales.
                     </p>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">

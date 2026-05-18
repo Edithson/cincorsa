@@ -32,7 +32,7 @@
     <div class="relative z-10 max-w-5xl px-6 text-center">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white glow">
             La mémoire<br />
-            <span class="text-emerald-400">n’est pas figée.</span>
+            <span class="text-emerald-400">est fragile.</span>
         </h1>
 
         <p class="mt-8 text-xl md:text-2xl text-gray-300 leading-relaxed">

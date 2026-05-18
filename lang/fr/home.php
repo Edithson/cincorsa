@@ -29,7 +29,7 @@ return [
 
     //about section
     'about_title' => 'Qui sommes-nous ?',
-    'about_desc1' => 'est le leader incontesté de l\'ingénierie documentaire en Afrique noire francophone. Nous proposons une offre intégrée complète incluant l\'archivage manuel, l\'archivage électronique, des logiciels GEIDE et des solutions de dématérialisation.',
+    'about_desc1' => 'est le leader incontesté de l\'archivage manuel en Afrique noire francophone. Nous proposons une offre intégrée complète incluant l\'archivage manuel, l\'archivage électronique, des logiciels GEIDE et des solutions de dématérialisation.',
     'about_desc2' => 'Notre expertise couvre la gestion globale du cycle de vie des documents : documents entrants, dossiers de soumission, documents internes et externes. Nous maîtrisons parfaitement l\'interaction avec les principaux systèmes d\'information (ERP, PLM, CRM, GMAO, messagerie, intranet, extranet).',
     'about_desc3' => 'Nos Systèmes d\'Archivage Électronique (SAE) s\'articulent autour de trois piliers essentiels :',
     'about_desc4' => 'organisationnel',

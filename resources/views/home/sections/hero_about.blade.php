@@ -194,22 +194,4 @@
             });
         });
 
-        // Effet de halo sur le curseur
-        const cursor = document.createElement('div');
-        cursor.style.cssText = `
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease;
-        `;
-        document.body.appendChild(cursor);
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = (e.clientX - 150) + 'px';
-            cursor.style.top = (e.clientY - 150) + 'px';
-        });
     </script>
