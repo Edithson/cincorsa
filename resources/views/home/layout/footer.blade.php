@@ -9,12 +9,12 @@
                         <img src="{{ asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold">CINV-CORSA</h3>
+                        <h3 class="text-xl font-bold">CINV-COR SA</h3>
                         <p class="text-sm text-gray-400">Solutions Documentaires</p>
                     </div>
                 </div>
                 <p class="text-gray-400 leading-relaxed">
-                    Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 15 ans.
+                    Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 25 ans.
                 </p>
             </div>
 

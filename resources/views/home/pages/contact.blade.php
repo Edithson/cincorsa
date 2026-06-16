@@ -48,8 +48,9 @@
         }
     </style>
 
-    <section class="relative bg-slate-900 py-20 overflow-hidden pt-20 md:pt-32 lg:pt-40">
-        <div class="absolute inset-0 opacity-10">
+    <section class="relative bg-slate-900 py-20 overflow-hidden pb-44 pt-52 md:pt-48 lg:pt-52">
+        <div class="absolute inset-0 opacity-20">
+            <img class="content-center" src="{{asset("media/img/socials/cta.png")}}" alt="image de téléphone fixe">
             <div
                 class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
             </div>

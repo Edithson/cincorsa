@@ -25,7 +25,7 @@
     </style>
 
     <section>
-        <section class="relative pt-32 pb-20 bg-slate-900 text-white overflow-hidden">
+        <section class="relative pt-52 pb-40 bg-slate-900 text-white overflow-hidden">
             <div class="absolute top-0 right-0 w-1/2 h-full bg-emerald-500/10 skew-x-12 translate-x-32"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="max-w-3xl">
@@ -41,226 +41,69 @@
                 <img
                     id="hero-slider"
                     src="/media/img/slides/photo1.png"
-                    class="w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+                    class="w-full h-full object-cover transition-opacity duration-1000 opacity-100 mt-12"
                     alt="CINV-CORSA Slideshow"
                 >
             </div>
         </section>
 
         <div class="space-y-12 lg:space-y-0">
-            <section id="physique" class="reveal py-16 lg:py-24 overflow-hidden">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                        <div class="w-full lg:w-1/2 reveal-left">
-                            <div class="relative">
-                                <div class="absolute -top-4 -left-4 w-24 h-24 bg-emerald-100 rounded-full z-0"></div>
-                                <img src="{{ asset('media/img/services/archivage-physique.avif') }}"
-                                    alt="Archives Physiques"
-                                    class="rounded-3xl shadow-2xl relative z-10 object-cover h-[500px] w-full">
+            @foreach ($services as $service)
+                @php
+                    $flexDir       = $service['reversed'] ? 'lg:flex-row-reverse' : 'lg:flex-row';
+                    $imgReveal     = $service['reversed'] ? 'reveal-right'        : 'reveal-left';
+                    $contentReveal = $service['reversed'] ? 'reveal-left'         : 'reveal-right';
+                @endphp
+
+                <section id="{{ $service['id'] }}"
+                        class="reveal py-16 lg:py-24 overflow-hidden {{ $service['bg'] }}">
+                    <div class="container mx-auto px-6">
+                        <div class="flex flex-col {{ $flexDir }} items-center gap-12 lg:gap-20">
+
+                            {{-- Visual --}}
+                            <div class="w-full lg:w-1/2 {{ $imgReveal }}">
+                                <div class="relative">
+                                    <div class="{{ $service['deco'] }}"></div>
+                                    <img src="{{ asset($service['image']) }}"
+                                        alt="{{ $service['image_alt'] }}"
+                                        class="rounded-3xl shadow-2xl relative z-10 object-cover {{ $service['image_class'] }}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="w-full lg:w-1/2 reveal-right">
-                            <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">Solution Classique</span>
-                            <h2 class="text-4xl font-extrabold mt-4 mb-6">Archivage Physique & Gestion des Stocks</h2>
-                            <p class="text-gray-600 mb-8 text-lg">
-                                L'archivage papier reste le socle de la preuve juridique. Nous transformons vos salles
-                                d'archives encombrées en systèmes organisés et sécurisés.
-                            </p>
-                            <ul class="space-y-4">
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Audit et inventaire contradictoire</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Tri, dépoussiérage et reconditionnement</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Destruction confidentielle et sécurisée</span>
-                                </li>
-                            </ul>
+
+                            {{-- Content --}}
+                            <div class="w-full lg:w-1/2 {{ $contentReveal }}">
+                                @if ($service['badge'])
+                                    <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">
+                                        {{ $service['badge'] }}
+                                    </span>
+                                @endif
+                                <h2 class="text-4xl font-extrabold mt-4 mb-6">{{ $service['title'] }}</h2>
+                                <p class="text-gray-600 mb-8 text-lg">{{ $service['description'] }}</p>
+
+                                @if ($service['intro'])
+                                    <p class="mb-2">{{ $service['intro'] }}</p>
+                                @endif
+
+                                <ul class="space-y-4">
+                                    @foreach ($service['points'] as $point)
+                                        <li class="flex items-center space-x-3">
+                                            <div class="bg-emerald-100 p-1 rounded-full shrink-0">
+                                                <svg class="w-5 h-5 text-emerald-600" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                </svg>
+                                            </div>
+                                            <span class="font-medium text-slate-700">{{ $point }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </section>
-            <section id="electronique" class="reveal py-16 lg:py-24 bg-slate-50/50 overflow-hidden">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
-                        <div class="w-full lg:w-1/2 reveal-right">
-                            <div class="relative">
-                                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-100 rounded-full z-0"></div>
-                                <img src="{{ asset('media/img/services/archivage-electronique.avif') }}" alt="Archives Électroniques" class="rounded-3xl shadow-2xl relative z-10 object-cover h-[400px] lg:h-[550px] w-full">
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-1/2 reveal-left">
-                            <h2 class="text-4xl font-extrabold mt-4 mb-6">Archivage Électronique</h2>
-                            <p class="text-gray-600 mb-8 text-lg">
-                                Libérez-vous des contraintes physiques avec notre solution d'archivage numérique
-                                sécurisée, conforme aux normes internationales.
-                            </p>
-                            <ul class="space-y-4">
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Conception et mise en place de systèmes d'archivage électronique</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Numérisation de documents papier</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Migration de supports physiques vers supports numériques</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Sécurisation des documents numériques</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="logiciel" class="reveal py-16 lg:py-24 overflow-hidden">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                        <div class="w-full lg:w-1/2 reveal-left">
-                            <div class="relative">
-                                <div class="absolute -top-4 -left-4 w-24 h-24 bg-emerald-100 rounded-full z-0"></div>
-                                <img src="{{ asset('media/img/services/logiciel-ged.jpg') }}"
-                                    alt="Archives Physiques"
-                                    class="rounded-3xl shadow-2xl relative z-10 object-cover h-[500px] w-full">
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-1/2 reveal-right">
-                            <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">Software</span>
-                            <h2 class="text-4xl font-extrabold mt-4 mb-6"> Fourniture de Logiciels GEIDE</h2>
-                            <p class="text-gray-600 mb-8 text-lg">
-                                Optimisez la gestion de vos documents avec nos solutions de Gestion Électronique des
-                                Informations et Documents d'Entreprise (GEIDE) adaptées à vos besoins spécifiques.
-                            </p>
-                            <p>La GEIDE permet :</p>
-                            <ul class="space-y-4">
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">La centralisation de tous les documents d'une organisation</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">La gestion des documents en cours de modification</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Le contrôle et la maîtrise des flux documentaires</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">L'acquisition, l'intégration, la transformation, la consolidation, le contrôle et le reporting des informations</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="dematerialisation" class="reveal py-16 lg:py-24 bg-slate-50/50 overflow-hidden">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
-                        <div class="w-full lg:w-1/2 reveal-right">
-                            <div class="relative">
-                                <div class="absolute -top-4 -left-4 w-24 h-24 bg-emerald-100 rounded-full z-0"></div>
-                                <img src="{{ asset('media/img/services/dematerialisation.webp') }}"
-                                    alt="Archives Physiques"
-                                    class="rounded-3xl shadow-2xl relative z-10 object-cover h-[500px] w-full">
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-1/2 reveal-left">
-                            <h2 class="text-4xl font-extrabold mt-4 mb-6">Dématérialisation</h2>
-                            <p class="text-gray-600 mb-8 text-lg">
-                                Passez au numérique avec notre service de dématérialisation complet, réduisez les coûts
-                                et améliorez l'efficacité opérationnelle.
-                            </p>
-                            <ul class="space-y-4">
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Transformation des processus papier en processus numériques</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Sécurisation des procédures d'administration documentaire</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Association de signatures électroniques</span>
-                                </li>
-                                <li class="flex items-center space-x-3">
-                                    <div class="bg-emerald-100 p-1 rounded-full"><svg class="w-5 h-5 text-emerald-600"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg></div>
-                                    <span class="font-medium text-slate-700">Mise en place de workflows de validation</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            @endforeach
         </div>
 
         <section id="numerique" class="py-24 bg-slate-900 text-white">
