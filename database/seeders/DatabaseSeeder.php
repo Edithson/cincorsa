@@ -30,6 +30,19 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        User::factory()->create([
+            'name' => 'John Doe',
+            'email' => 'johndoe@mail.com',
+            'password' => bcrypt('c@rabine21'),
+            'permissions' => [
+                'articles' => 'author',
+                'contacts' => 'view',
+                'settings' => 'none',
+                'profile' => 'author',
+                'laws' => 'view',
+            ],
+        ]);
+
         //{"laws": "full", "profile": "full", "articles": "full", "contacts": "full", "settings": "full"}
     }
 }

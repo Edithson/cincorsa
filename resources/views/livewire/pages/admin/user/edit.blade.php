@@ -25,13 +25,15 @@ new class extends Component {
         $this->user = $user;
         $this->name = $user->name;
         $this->email = $user->email;
-        // On récupère les permissions existantes ou on initialise par défaut
-        $this->permissions = $user->permissions ?? [
+
+        // Récupération des permissions existantes avec fusion des valeurs par défaut
+        $defaultPermissions = [
             'articles' => AccessLevel::NONE->value,
             'contacts' => AccessLevel::NONE->value,
             'settings' => AccessLevel::NONE->value,
             'profile'  => AccessLevel::NONE->value,
         ];
+        $this->permissions = array_merge($defaultPermissions, $user->permissions ?? []);
     }
 
     /**
@@ -74,7 +76,12 @@ new class extends Component {
     public function updatePermissions()
     {
         $this->authorize('update', $this->user);
-        // On s'assure que les valeurs correspondent aux Enums (exemple simplifié)
+
+        if ($this->user->id === auth()->id()) {
+            session()->flash('error', 'Vous ne pouvez pas modifier vos propres droits d\'accès.');
+            return;
+        }
+
         $this->user->update([
             'permissions' => $this->permissions
         ]);
@@ -88,6 +95,17 @@ new class extends Component {
     public function deleteUser()
     {
         $this->authorize('delete', $this->user);
+
+        if ((int) $this->user->id === 1) {
+            session()->flash('error', 'Le compte Administrateur principal (ID 1) ne peut pas être supprimé.');
+            return;
+        }
+
+        if ($this->user->id === auth()->id()) {
+            session()->flash('error', 'Vous ne pouvez pas supprimer votre propre compte.');
+            return;
+        }
+
         $this->user->delete();
         return $this->redirect(route('user.index'), navigate: true);
     }
@@ -108,6 +126,13 @@ new class extends Component {
             Retour à la liste
         </a>
     </div>
+
+    @if (session('error'))
+        <div class="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 font-bold text-sm flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>{{ session('error') }}</span>
+        </div>
+    @endif
 
     <section class="p-6 bg-white rounded-2xl shadow-sm border border-slate-200">
         <form wire:submit="updateProfileInformation">
@@ -133,7 +158,6 @@ new class extends Component {
         </form>
     </section>
 
-    @if (session('status') === 'permissions-updated' && $user->id !== auth()->id())
     <section class="p-8 bg-white rounded-2xl shadow-sm border border-slate-200">
         <form wire:submit="updatePermissions">
             <div class="flex items-center gap-3 mb-2">
@@ -143,7 +167,14 @@ new class extends Component {
                 <h2 class="text-lg font-bold text-slate-800">Permissions par module</h2>
             </div>
 
-            <p class="text-sm text-slate-500 mb-8 ml-10">Définissez le niveau d'autorisation pour chaque fonctionnalité du système.</p>
+            <p class="text-sm text-slate-500 mb-6">Définissez le niveau d'autorisation pour chaque fonctionnalité du système.</p>
+
+            @if($user->id === auth()->id())
+                <div class="p-4 mb-6 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-sm flex items-center gap-3">
+                    <svg class="w-5 h-5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <span>Vous modifiez votre propre compte. Pour des raisons de sécurité, la modification de vos propres droits d'accès est désactivée.</span>
+                </div>
+            @endif
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 @php
@@ -154,10 +185,10 @@ new class extends Component {
                         'profile'  => 'Gestion Profil'
                     ];
                     $levels = [
-                        AccessLevel::NONE->value   => ['label' => 'Aucun accès', 'color' => 'text-slate-400'],
-                        AccessLevel::VIEW->value   => ['label' => 'Lecture seule', 'color' => 'text-blue-600'],
-                        AccessLevel::AUTHOR->value => ['label' => 'Auteur (ses contenus)', 'color' => 'text-emerald-600'],
-                        AccessLevel::FULL->value   => ['label' => 'Accès Total', 'color' => 'text-purple-600']
+                        AccessLevel::NONE->value   => 'Aucun accès',
+                        AccessLevel::VIEW->value   => 'Lecture seule',
+                        AccessLevel::AUTHOR->value => 'Auteur (ses contenus)',
+                        AccessLevel::FULL->value   => 'Accès Total'
                     ];
                 @endphp
 
@@ -165,28 +196,31 @@ new class extends Component {
                     <div class="p-5 border border-slate-100 rounded-2xl bg-slate-50/50">
                         <label class="block text-sm font-bold text-slate-700 mb-3">{{ $label }}</label>
                         <select wire:model="permissions.{{ $key }}"
-                                class="w-full bg-white px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-medium focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all">
-                            @foreach($levels as $value => $info)
-                                <option value="{{ $value }}">{{ $info['label'] }}</option>
+                                @disabled($user->id === auth()->id())
+                                class="w-full bg-white px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-medium focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 outline-none transition-all disabled:opacity-60 disabled:bg-slate-100">
+                            @foreach($levels as $value => $labelText)
+                                <option value="{{ $value }}">{{ $labelText }}</option>
                             @endforeach
                         </select>
                     </div>
                 @endforeach
             </div>
 
-            <div class="flex items-center gap-4">
-                <button type="submit" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-slate-800 transition-all active:scale-95 shadow-lg shadow-slate-200">
-                    Enregistrer les droits
-                </button>
-                @if (session('status') === 'permissions-updated')
-                    <span x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="text-sm text-emerald-600 font-bold">
-                        Permissions enregistrées
-                    </span>
-                @endif
-            </div>
+            @if($user->id !== auth()->id())
+                <div class="flex items-center gap-4">
+                    <button type="submit" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-all active:scale-95 shadow-lg shadow-slate-200">
+                        Enregistrer les droits
+                    </button>
+                    @if (session('status') === 'permissions-updated')
+                        <span x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3500)" class="text-sm text-emerald-600 font-bold flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Permissions enregistrées avec succès.
+                        </span>
+                    @endif
+                </div>
+            @endif
         </form>
     </section>
-    @endif
 
     <section class="p-6 bg-white rounded-2xl shadow-sm border border-slate-200">
         <form wire:submit="updatePassword">
@@ -213,25 +247,37 @@ new class extends Component {
 
     <section class="p-6 bg-red-50 rounded-2xl border border-red-200" x-data="{ confirmingDeletion: false }">
         <h2 class="text-lg font-bold text-red-800 mb-2">Zone de danger</h2>
-        <p class="text-sm text-red-600 mb-4">La suppression d'un utilisateur est irréversible. Toutes ses données seront effacées.</p>
 
-        <button type="button" @click="confirmingDeletion = true" class="bg-red-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-200">
-            Supprimer cet utilisateur
-        </button>
+        @if((int) $user->id === 1)
+            <div class="p-4 bg-white/80 rounded-xl border border-red-200 text-red-700 text-sm font-semibold flex items-center gap-2">
+                <svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <span>Le compte Administrateur principal (ID 1) est protégé et ne peut pas être supprimé.</span>
+            </div>
+        @elseif($user->id === auth()->id())
+            <div class="p-4 bg-white/80 rounded-xl border border-red-200 text-red-700 text-sm font-semibold flex items-center gap-2">
+                <svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <span>Vous ne pouvez pas supprimer votre propre compte actuellement connecté.</span>
+            </div>
+        @else
+            <p class="text-sm text-red-600 mb-4">La suppression d'un utilisateur est irréversible. Toutes ses données seront effacées.</p>
 
-        {{-- Modal de confirmation --}}
-        <template x-teleport="body">
-            <div x-show="confirmingDeletion" class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" @click="confirmingDeletion = false"></div>
-                <div class="relative bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-                    <h3 class="text-xl font-extrabold text-slate-900 mb-2">Confirmer la suppression ?</h3>
-                    <p class="text-slate-600 mb-6">Êtes-vous sûr de vouloir supprimer <strong>{{ $user->name }}</strong> ? Cette action est définitive.</p>
-                    <div class="flex gap-3">
-                        <button @click="confirmingDeletion = false" class="flex-1 px-4 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Annuler</button>
-                        <button wire:click="deleteUser" class="flex-1 px-4 py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 transition-all">Oui, supprimer</button>
+            <button type="button" @click="confirmingDeletion = true" class="bg-red-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-200">
+                Supprimer cet utilisateur
+            </button>
+
+            {{-- Modal de confirmation --}}
+            <template x-teleport="body">
+                <div x-show="confirmingDeletion" class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                    <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" @click="confirmingDeletion = false"></div>
+                    <div class="relative bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Confirmer la suppression ?</h3>
+                        <p class="text-slate-600 mb-6">Êtes-vous sûr de vouloir supprimer <strong>{{ $user->name }}</strong> ? Cette action est définitive.</p>
+                        <div class="flex gap-3">
+                            <button @click="confirmingDeletion = false" class="flex-1 px-4 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Annuler</button>
+                            <button wire:click="deleteUser" class="flex-1 px-4 py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 transition-all">Oui, supprimer</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </template>
+            </template>
+        @endif
     </section>
-</div>
