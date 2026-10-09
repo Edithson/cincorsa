@@ -54,11 +54,11 @@
             <a href="{{route('home')}}">
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
-                        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA" fetchpriority="high" decoding="async">
+                        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo {{ $siteName }}" fetchpriority="high" decoding="async">
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold text-gray-800">{{ $siteName ? $siteName : "CINV-CORSA" }}</h1>
-                        <p class="text-xs text-gray-500">{{ $siteSlogan ? $siteSlogan : "Solutions Documentaires" }}</p>
+                        <h1 class="text-xl font-bold text-gray-800">{{ $siteName }}</h1>
+                        <p class="text-xs text-gray-500">{{ $siteSlogan }}</p>
                     </div>
                 </div>
             </a>
@@ -70,6 +70,14 @@
                 <a id="menu_article" href="{{route('article')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.article_link') }}</a>
                 <a id="menu_about" href="{{route('about')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.about_link') }}</a>
                 <a id="menu_contact" href="{{route('contact')}}" class="text-gray-700 hover:text-green-600 font-medium transition">{{ __('home.contact_link') }}</a>
+                
+                @auth
+                <a href="{{ route('admin_dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold transition shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span>Administration</span>
+                </a>
+                @endauth
+
                 <div class="language-toggle">
                     <div class="language-option {{ app()->getLocale() == 'fr' ? 'active' : '' }}"
                         onclick="window.location.href='/lang/fr'">
@@ -110,6 +118,30 @@
         <a id="mobile_menu_article" href="{{route('article')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.article_link') }}</a>
         <a id="mobile_menu_about" href="{{route('about')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.about_link') }}</a>
         <a id="mobile_menu_contact" href="{{route('contact')}}" class="block text-lg font-medium text-gray-700 hover:text-green-600">{{ __('home.contact_link') }}</a>
+
+        @auth
+        <div class="pt-2">
+            <a href="{{ route('admin_dashboard') }}" class="inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-base font-bold transition shadow-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                <span>Administration</span>
+            </a>
+        </div>
+        @endauth
+
+        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+            <span class="text-sm font-semibold text-gray-500">Langue / Language :</span>
+            <div class="language-toggle">
+                <div class="language-option {{ app()->getLocale() == 'fr' ? 'active' : '' }}"
+                    onclick="window.location.href='/lang/fr'">
+                    🇫🇷 <span>FR</span>
+                </div>
+                <span class="divider"></span>
+                <div class="language-option {{ app()->getLocale() == 'en' ? 'active' : '' }}"
+                    onclick="window.location.href='/lang/en'">
+                    🇬🇧 <span>EN</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

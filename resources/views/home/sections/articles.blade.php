@@ -1,7 +1,7 @@
 <section class="py-20 bg-slate-50 overflow-hidden">
     <div class="text-center max-w-3xl mx-auto px-6 mb-16">
         <div class="flex justify-center mb-6">
-            <img src="{{ asset('media/img/logo/logo3.png') }}" alt="Logo CINV-COR" class="h-14 w-auto" loading="lazy" decoding="async">
+            <img src="{{ asset('media/img/logo/logo3.png') }}" alt="Logo {{ $siteName }}" class="h-14 w-auto" loading="lazy" decoding="async">
         </div>
         <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Focus <span class="text-green-600">Expertise</span></h2>
         <p class="text-slate-500 mt-3 text-lg">Découvrez nos dernières réflexions sur l'ingénierie documentaire et la gestion des flux.</p>

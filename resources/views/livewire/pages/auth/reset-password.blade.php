@@ -74,8 +74,8 @@ $resetPassword = function () {
         <div class="relative z-10 max-w-lg text-center">
             <div class="mb-12 flex justify-center items-center w-full">
                 <a href="{{route('home')}}" class="text-2xl font-black text-white flex items-center gap-2">
-                    <img src="{{ asset('media/img/logo.png') }}" alt="logo cinv-corsa" class="w-8 h-8 object-contain">
-                    CINV-COR<span class="text-emerald-600">SA</span>
+                    <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="logo {{ $siteName }}" class="w-8 h-8 object-contain">
+                    {{ $siteName }}
                 </a>
             </div>
             <h1 class="text-5xl font-black text-white mb-6 leading-tight">
@@ -104,8 +104,8 @@ $resetPassword = function () {
             {{-- Masquer ce block pour les grand écrans --}}
             <div class="lg:hidden mb-12 mt-5 flex justify-center w-full items-center">
                 <a href="{{route('home')}}" class="text-2xl font-black text-slate-900 flex items-center gap-2">
-                    <img src="{{ asset('media/img/logo.png') }}" alt="logo cinv-corsa" class="w-8 h-8 object-contain">
-                    CINV-COR<span class="text-emerald-600">SA</span>
+                    <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="logo {{ $siteName }}" class="w-8 h-8 object-contain">
+                    {{ $siteName }}
                 </a>
             </div>
             <div class="mb-10">

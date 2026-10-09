@@ -4,7 +4,7 @@
         <!-- Header -->
         <div class="text-center mb-16 animate-fadeInUp">
             <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-                Pourquoi choisir CINV-CORSA ?
+                Pourquoi choisir {{ $siteName }} ?
             </h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                 Leader reconnu en Afrique francophone, nous combinons expertise, innovation et engagement pour votre

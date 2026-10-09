@@ -23,7 +23,7 @@
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-black text-slate-900 mb-4">Nos Domaines d'Expertise</h2>
-            <p class="text-slate-500 max-w-2xl mx-auto">Découvrez comment CINV-COR S.A accompagne votre transformation documentaire.</p>
+            <p class="text-slate-500 max-w-2xl mx-auto">Découvrez comment {{ $siteName }} accompagne votre transformation documentaire.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

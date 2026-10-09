@@ -12,7 +12,7 @@ class AboutController extends Controller
     public function index()
     {
         $settings = Setting::getCachedSettings();
-        $siteName = $settings->site_name ?? 'CINV-COR SA';
+        $siteName = $settings->name ?? 'CINV-COR SA';
 
         $timeline = [
             [

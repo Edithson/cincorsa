@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CINV-CORSA</title>
+    <title>{{ $siteName }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,8 +60,9 @@
         </button>
 
         @php
-            $whatsappNumber = "23760770861";
-            $message = rawurlencode("Bonjour CINV-CORSA, j'aimerais avoir plus d'informations sur vos services.");
+            $whatsappRaw = !empty($siteSocials['whatsapp']) ? $siteSocials['whatsapp'] : (!empty($sitePhones[0]) ? $sitePhones[0] : '237696156981');
+            $whatsappNumber = preg_replace('/[^0-9]/', '', $whatsappRaw);
+            $message = rawurlencode("Bonjour " . $siteName . ", j'aimerais avoir plus d'informations sur vos services.");
         @endphp
         <a
             href="https://wa.me/{{ $whatsappNumber }}?text={{ $message }}"
