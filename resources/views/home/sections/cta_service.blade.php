@@ -23,7 +23,7 @@
 
 {{-- mettre cette couleur en fond #050607 --}}
 <section class="bg-[#050607] relative min-h-screen flex items-center justify-center grain overflow-hidden">
-    <img src="{{ asset('media/img/services/cta_service2.png') }}" alt="appel à l'action service" class="absolute inset-0 w-full h-full object-cover object-center opacity-40 z-0" />
+    <img src="{{ asset('media/img/services/cta_service2.png') }}" alt="appel à l'action service" class="absolute inset-0 w-full h-full object-cover object-center opacity-40 z-0" loading="lazy" decoding="async" />
 
     <!-- Canvas animé -->
     <canvas id="flow"></canvas>

@@ -10,13 +10,16 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        // On n'injecte ces variables QUE dans les layouts de base
+        // Static memoization to avoid redundant cache retrievals across partial views
         View::composer('*', function ($view) {
-            $settings = Setting::getCachedSettings();
+            static $settings = null;
+            if ($settings === null) {
+                $settings = Setting::getCachedSettings();
+            }
 
-            $view->with('siteName', $settings->name);
-            $view->with('siteLogo', $settings->logo);
-            $view->with('siteSlogan', $settings->slogan);
+            $view->with('siteName', $settings->name ?? 'CINV-CORSA');
+            $view->with('siteLogo', $settings->logo ?? 'default-logo.png');
+            $view->with('siteSlogan', $settings->slogan ?? '');
             $view->with('siteSocials', $settings->socials ?? []);
         });
     }

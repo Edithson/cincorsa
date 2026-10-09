@@ -92,5 +92,5 @@
     </script>
 </body>
 
-<script src="{{ asset('js/home/script.js') }}"></script>
+<script src="{{ asset('js/home/script.js') }}" defer></script>
 </html>

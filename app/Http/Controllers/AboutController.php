@@ -46,7 +46,7 @@ class AboutController extends Controller
                                 francophone avec plus de 200 clients et 50K+ documents gérés.",
             ],
             [
-                'year'        => '2025',
+                'year'        => '2026',
                 'title'       => 'Innovation et Futur',
                 'description' => 'Intégration de l\'Intelligence Artificielle dans nos solutions, lancement de services
                                 cloud et vision d\'expansion panafricaine.',

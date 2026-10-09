@@ -7,7 +7,9 @@
         @if($article->picture)
             <img src="{{ asset('storage/' . $article->picture) }}"
                  class="w-full h-full object-cover"
-                 alt="{{ $article->title }}">
+                 alt="{{ $article->title }}"
+                 fetchpriority="high"
+                 decoding="async">
         @else
             <div class="w-full h-full bg-emerald-900"></div>
         @endif
@@ -88,7 +90,7 @@
                         @foreach($recentArticles as $recent)
                             <a href="{{ route('home.article.show', $recent->slug) }}" class="group flex gap-4">
                                 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-                                    <img src="{{ asset('storage/' . $recent->picture) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                    <img src="{{ asset('storage/' . $recent->picture) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" decoding="async">
                                 </div>
                                 <div class="flex flex-col justify-center">
                                     <h4 class="text-sm font-bold text-slate-800 line-clamp-2 group-hover:text-emerald-600">

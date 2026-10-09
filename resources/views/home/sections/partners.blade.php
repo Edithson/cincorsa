@@ -64,7 +64,7 @@
         function renderLogos() {
             slider.innerHTML = partnerLogos.map(logo => `
                 <div class="flex-shrink-0 flex items-center justify-center bg-white rounded-lg shadow-md p-2 hover:shadow-xl transition-shadow duration-300" style="width: calc((100% - ${(itemsPerView - 1) * (window.innerWidth < 768 ? 2 : 3)}rem) / ${itemsPerView})">
-                    <img src="${logo}" alt="Logo partenaire" class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-110">
+                    <img src="${logo}" alt="Logo partenaire" loading="lazy" decoding="async" class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-110">
                 </div>
             `).join('');
         }

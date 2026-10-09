@@ -54,7 +54,7 @@
             <a href="{{route('home')}}">
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
-                        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
+                        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA" fetchpriority="high" decoding="async">
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">{{ $siteName ? $siteName : "CINV-CORSA" }}</h1>

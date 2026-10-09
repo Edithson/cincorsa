@@ -6,7 +6,7 @@
             <div>
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center">
-                        <img src="{{ asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
+                        <img src="{{ asset('media/img/logo.png') }}" alt="Logo CINV-CORSA" loading="lazy" decoding="async">
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">CINV-COR SA</h3>

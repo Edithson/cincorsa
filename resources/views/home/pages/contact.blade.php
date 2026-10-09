@@ -57,7 +57,9 @@
             <img class="w-full h-full object-cover object-center"
                 src="{{ asset('media/img/socials/cta.png') }}"
                 alt=""
-                aria-hidden="true">
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async">
 
             {{-- Halos décoratifs --}}
             <div class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

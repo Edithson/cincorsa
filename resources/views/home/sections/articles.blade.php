@@ -1,7 +1,7 @@
 <section class="py-20 bg-slate-50 overflow-hidden">
     <div class="text-center max-w-3xl mx-auto px-6 mb-16">
         <div class="flex justify-center mb-6">
-            <img src="{{ asset('media/img/logo/logo3.png') }}" alt="Logo CINV-COR" class="h-14 w-auto">
+            <img src="{{ asset('media/img/logo/logo3.png') }}" alt="Logo CINV-COR" class="h-14 w-auto" loading="lazy" decoding="async">
         </div>
         <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Focus <span class="text-green-600">Expertise</span></h2>
         <p class="text-slate-500 mt-3 text-lg">Découvrez nos dernières réflexions sur l'ingénierie documentaire et la gestion des flux.</p>
@@ -38,7 +38,7 @@
 
                 <div class="card-image w-full md:w-1/3 h-48 md:h-full bg-slate-100 relative overflow-hidden">
                     @if($article->picture)
-                        <img src="{{ asset('storage/' . $article->picture) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/' . $article->picture) }}" alt="{{ $article->title }}" class="w-full h-full object-cover" loading="lazy" decoding="async">
                     @else
                         <div class="w-full h-full bg-emerald-50 flex items-center justify-center">
                             <svg class="w-12 h-12 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>

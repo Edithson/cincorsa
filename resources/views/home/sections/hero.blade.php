@@ -2,10 +2,10 @@
 <section id="accueil" class="hero-gradient relative pt-10">
     <div class="relative w-full h-screen overflow-hidden bg-slate-900 group shadow-2xl">
 
-        <img id="next-slide" src="" class="absolute inset-0 w-full h-full object-cover opacity-0">
+        <img id="next-slide" src="" class="absolute inset-0 w-full h-full object-cover opacity-0" loading="lazy" decoding="async">
 
         <div id="current-slide-container" class="absolute inset-0 w-full h-full z-10" style="clip-path: inset(0 0 0 0);">
-            <img id="current-slide" src="/media/img/slides/photo2.jpg" class="w-full h-full object-cover">
+            <img id="current-slide" src="/media/img/slides/photo2.jpg" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
         </div>
 
         <div id="scanner-bar" class="absolute inset-y-0 left-0 w-1 bg-linear-to-b from-transparent via-emerald-400 to-transparent z-20 opacity-0 shadow-[0_0_20px_rgba(16,185,129,0.8)]">

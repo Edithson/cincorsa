@@ -43,6 +43,8 @@
                     src="/media/img/slides/photo1.png"
                     class="w-full h-full object-cover transition-opacity duration-1000 opacity-100 mt-12"
                     alt="CINV-CORSA Slideshow"
+                    fetchpriority="high"
+                    decoding="async"
                 >
             </div>
         </section>
@@ -66,7 +68,9 @@
                                     <div class="{{ $service['deco'] }}"></div>
                                     <img src="{{ asset($service['image']) }}"
                                         alt="{{ $service['image_alt'] }}"
-                                        class="rounded-3xl shadow-2xl relative z-10 object-cover {{ $service['image_class'] }}">
+                                        class="rounded-3xl shadow-2xl relative z-10 object-cover {{ $service['image_class'] }}"
+                                        loading="lazy"
+                                        decoding="async">
                                 </div>
                             </div>
 

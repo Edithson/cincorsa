@@ -8,7 +8,7 @@
 
     <div class="container mx-auto px-6 relative z-10">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 md:p-16 shadow-2xl overflow-hidden relative">
-        <img src="{{asset('media/img/autres/cta.png')}}" alt="" class="w-full h-full absolute top-0 left-0 object-cover object-center opacity-10 pointer-events-none">
+        <img src="{{asset('media/img/autres/cta.png')}}" alt="" class="w-full h-full absolute top-0 left-0 object-cover object-center opacity-10 pointer-events-none" loading="lazy" decoding="async">
 
             <div class="absolute top-0 right-0 p-8 opacity-20 hidden lg:block">
                 <svg class="w-40 h-40 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
@@ -37,9 +37,9 @@
 
                     <div class="flex flex-wrap justify-center lg:justify-start gap-6 items-center">
                         <div class="flex -space-x-3">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=V+K&background=10b981&color=fff" alt="Client">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=A+M&background=3b82f6&color=fff" alt="Client">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=S+T&background=8b5cf6&color=fff" alt="Client">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=V+K&background=10b981&color=fff" alt="Client" loading="lazy" decoding="async">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=A+M&background=3b82f6&color=fff" alt="Client" loading="lazy" decoding="async">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=S+T&background=8b5cf6&color=fff" alt="Client" loading="lazy" decoding="async">
                         </div>
                         <p class="text-sm text-gray-500 italic">+200 organisations nous font confiance au Cameroun.</p>
                     </div>
