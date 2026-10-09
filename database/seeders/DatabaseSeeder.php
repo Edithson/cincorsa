@@ -20,6 +20,16 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('c@rabine21'),
+            'permissions' => [
+                'articles' => 'full',
+                'contacts' => 'full',
+                'settings' => 'full',
+                'profile' => 'full',
+                'laws' => 'full',
+            ],
         ]);
+
+        //{"laws": "full", "profile": "full", "articles": "full", "contacts": "full", "settings": "full"}
     }
 }

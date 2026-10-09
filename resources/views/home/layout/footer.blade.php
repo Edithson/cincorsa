@@ -65,7 +65,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-gray-800 pt-8 text-center">
-            <p class="text-gray-400">&copy; 2025 CINV-CORSA. Tous droits réservés. | Développé par <a href="https://moafogaus.72.62.16.16.nip.io/" class="text-green-400 hover:text-green-600">FONHOUO GAUS</a> pour l'excellence documentaire</p>
+            <p class="text-gray-400">&copy; 2025 CINV-CORSA. Tous droits réservés. | Développé par <a href="https://moafogaus.abrdns.com/" class="text-green-400 hover:text-green-600">FONHOUO GAUS</a> pour l'excellence documentaire</p>
         </div>
     </div>
 </footer>
