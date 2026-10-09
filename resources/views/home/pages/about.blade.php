@@ -289,7 +289,7 @@
             <!-- Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg">
-                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-number" data-target="25">0</div>
                     <p class="text-gray-600 font-semibold mt-2">Années d'Expérience</p>
                 </div>
                 <div class="text-center p-6 bg-gradient-to-br from-pink-50 to-white rounded-2xl shadow-lg">
@@ -316,7 +316,7 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre Mission</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
                         <strong class="text-green-600">{{ $siteName }}</strong> s'engage à transformer la gestion
-                        documentaire des entreprises africaines en proposant des solutions innovantes, sécurisées et
+                        documentaire des organisations africaines en proposant des solutions innovantes, sécurisées et
                         conformes aux normes internationales.
                     </p>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
@@ -415,77 +415,26 @@
             </div>
 
             <div class="timeline max-w-5xl mx-auto">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-green-600 mb-2">2008</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Création de {{ $siteName }}</h4>
-                        <p class="text-gray-600">
-                            Lancement de nos activités d'archivage manuel à Yaoundé, avec une vision claire : devenir le
-                            leader de la gestion documentaire en Afrique francophone.
-                        </p>
-                    </div>
-                </div>
+                @foreach ($timeline as $item)
+                    @php
+                        $yearColor = $loop->odd ? 'text-green-600' : 'text-pink-600';
+                    @endphp
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-pink-600 mb-2">2012</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Expansion vers le numérique</h4>
-                        <p class="text-gray-600">
-                            Introduction de nos premières solutions d'archivage électronique et de numérisation
-                            professionnelle. Plus de 50 clients nous font confiance.
-                        </p>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-2xl font-bold {{ $yearColor }} mb-2">
+                                {{ $item['year'] }}
+                            </h3>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">
+                                {{ $item['title'] }}
+                            </h4>
+                            <p class="text-gray-600">
+                                {{ $item['description'] }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-green-600 mb-2">2015</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Lancement des solutions GEIDE</h4>
-                        <p class="text-gray-600">
-                            Développement et déploiement de nos logiciels propriétaires de Gestion Électronique des
-                            Informations et Documents d'Entreprise.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-pink-600 mb-2">2018</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Certification et Expansion régionale</h4>
-                        <p class="text-gray-600">
-                            Obtention des certifications ISO et expansion de nos services dans 5 pays d'Afrique
-                            francophone. Plus de 150 clients actifs.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-green-600 mb-2">2023</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Leader reconnu du marché</h4>
-                        <p class="text-gray-600">
-                            {{ $siteName }} s'impose comme le leader incontesté de l'ingénierie documentaire en Afrique
-                            francophone avec plus de 200 clients et 50K+ documents gérés.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="text-2xl font-bold text-pink-600 mb-2">2025</h3>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Innovation et Futur</h4>
-                        <p class="text-gray-600">
-                            Intégration de l'Intelligence Artificielle dans nos solutions, lancement de services cloud
-                            et vision d'expansion panafricaine.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

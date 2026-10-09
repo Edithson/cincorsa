@@ -9,24 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            // On ajoute la colonne permissions en JSON
-            // nullable() permet d'éviter des erreurs si tu as déjà des utilisateurs en base
-            // after('password') place la colonne au bon endroit visuellement
-            $table->json('permissions')->nullable()->after('password');
-        });
-    }
+       public function up(): void
+        {
+            if (! Schema::hasColumn('users', 'permissions')) {
+                Schema::table('users', function (Blueprint $table) {
+                    $table->json('permissions')->nullable();
+                });
+            }
+        }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            // Toujours prévoir le rollback : supprimer la colonne si on annule la migration
-            $table->dropColumn('permissions');
-        });
-    }
+        public function down(): void
+        {
+            if (Schema::hasColumn('users', 'permissions')) {
+                Schema::table('users', function (Blueprint $table) {
+                    $table->dropColumn('permissions');
+                });
+            }
+        }
 };

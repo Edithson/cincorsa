@@ -3,7 +3,7 @@
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="stat-card">
-                <div class="stat-number">15+</div>
+                <div class="stat-number">25+</div>
                 <p class="text-gray-600 font-medium">{{ __('home.statistic1_title') }}</p>
             </div>
             <div class="stat-card">

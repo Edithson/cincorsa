@@ -33,11 +33,12 @@
                         <span class="text-green-500 mr-2">✓</span>
                         Établissements publics
                     </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-2">✓</span>
-                        Archives nationales
-                    </li>
                 </ul>
+                <div class="mt-6 bg-green-50 rounded-xl p-4">
+                    <p class="text-sm text-green-800 font-medium">
+                        <span class="font-bold">Référence:</span> DGB
+                    </p>
+                </div>
             </div>
 
             <!-- Sector 2 -->
@@ -66,7 +67,7 @@
                 </ul>
                 <div class="mt-6 bg-green-50 rounded-xl p-4">
                     <p class="text-sm text-green-800 font-medium">
-                        <span class="font-bold">Référence:</span> Crédit Foncier Cameroun (2004)
+                        <span class="font-bold">Référence:</span> PAD (2018)
                     </p>
                 </div>
             </div>
@@ -95,6 +96,11 @@
                         Hôpitaux & Cliniques
                     </li>
                 </ul>
+                <div class="mt-6 bg-green-50 rounded-xl p-4">
+                    <p class="text-sm text-green-800 font-medium">
+                        <span class="font-bold">Référence:</span> Zenith (2017)
+                    </p>
+                </div>
             </div>
         </div>
 

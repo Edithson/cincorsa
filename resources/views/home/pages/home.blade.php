@@ -4,7 +4,9 @@
     @include('home.sections.hero')
     @include('home.sections.stats')
     @include('home.sections.about')
-    @include('home.sections.articles', ['articles' => $articles])
+    @if ($articles->isNotEmpty())
+        @include('home.sections.articles', ['articles' => $articles])
+    @endif
     @include('home.sections.choise')
     @include('home.sections.services2')
     @include('home.sections.cta1')

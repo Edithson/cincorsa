@@ -51,15 +51,17 @@
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
-                    <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
+            <a href="{{route('home')}}">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">{{ $siteName ? $siteName : "CINV-CORSA" }}</h1>
+                        <p class="text-xs text-gray-500">{{ $siteSlogan ? $siteSlogan : "Solutions Documentaires" }}</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold text-gray-800">{{ $siteName ? $siteName : "CINV-CORSA" }}</h1>
-                    <p class="text-xs text-gray-500">{{ $siteSlogan ? $siteSlogan : "Solutions Documentaires" }}</p>
-                </div>
-            </div>
+            </a>
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">

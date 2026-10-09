@@ -9,12 +9,12 @@
                         <img src="{{ asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold">CINV-CORSA</h3>
+                        <h3 class="text-xl font-bold">CINV-COR SA</h3>
                         <p class="text-sm text-gray-400">Solutions Documentaires</p>
                     </div>
                 </div>
                 <p class="text-gray-400 leading-relaxed">
-                    Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 15 ans.
+                    Leader de l'ingénierie documentaire en Afrique francophone depuis plus de 25 ans.
                 </p>
             </div>
 
@@ -65,7 +65,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-gray-800 pt-8 text-center">
-            <p class="text-gray-400">&copy; 2025 CINV-CORSA. Tous droits réservés. | Développé pour l'excellence documentaire</p>
+            <p class="text-gray-400">&copy; 2025 CINV-CORSA. Tous droits réservés. | Développé par <a href="https://moafogaus.72.62.16.16.nip.io/" class="text-green-400 hover:text-green-600">FONHOUO GAUS</a> pour l'excellence documentaire</p>
         </div>
     </div>
 </footer>

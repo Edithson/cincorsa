@@ -27,7 +27,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-3">15+ Années d'Expertise</h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Plus de 15 ans d'expérience en ingénierie documentaire avec une connaissance approfondie du
+                    Plus de 25 ans d'expérience en archivage manuel avec une connaissance approfondie du
                     marché africain et de ses spécificités réglementaires.
                 </p>
             </div>
@@ -63,7 +63,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-3">Offre Intégrée Complète</h3>
                 <p class="text-gray-600 leading-relaxed">
-                    De l'archivage manuel à la GEIDE, en passant par le SAE et la dématérialisation, nous couvrons
+                    De l'archivage manuel à la SAE, en passant par le GEIDE et la dématérialisation, nous couvrons
                     tous vos besoins documentaires.
                 </p>
             </div>
