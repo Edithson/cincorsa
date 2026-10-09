@@ -49,18 +49,26 @@
     </style>
 
     <section class="relative bg-slate-900 py-20 overflow-hidden pb-44 pt-52 md:pt-48 lg:pt-52">
+
+        {{-- Couche background --}}
         <div class="absolute inset-0 opacity-20">
-            <img class="content-center" src="{{asset("media/img/socials/cta.png")}}" alt="image de téléphone fixe">
-            <div
-                class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
-            </div>
-            <div
-                class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl translate-x-1/3 translate-y-1/3">
-            </div>
+
+            {{-- Image traitée comme un vrai fond : couvre toute la section sans déborder --}}
+            <img class="w-full h-full object-cover object-center"
+                src="{{ asset('media/img/socials/cta.png') }}"
+                alt=""
+                aria-hidden="true">
+
+            {{-- Halos décoratifs --}}
+            <div class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
         </div>
+
+        {{-- Contenu --}}
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-black text-white mb-4">Contactez nos <span
-                    class="text-emerald-400">experts</span></h1>
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-4">
+                Contactez nos <span class="text-emerald-400">experts</span>
+            </h1>
             <p class="text-gray-400 max-w-2xl mx-auto text-lg">
                 Vous avez un projet d'archivage ou de transformation digitale ? Notre équipe est à votre disposition
                 pour un audit personnalisé à Yaoundé et partout en Afrique.

@@ -133,6 +133,7 @@ new class extends Component {
         </form>
     </section>
 
+    @if (session('status') === 'permissions-updated' && $user->id !== auth()->id())
     <section class="p-8 bg-white rounded-2xl shadow-sm border border-slate-200">
         <form wire:submit="updatePermissions">
             <div class="flex items-center gap-3 mb-2">
@@ -141,6 +142,7 @@ new class extends Component {
                 </div>
                 <h2 class="text-lg font-bold text-slate-800">Permissions par module</h2>
             </div>
+
             <p class="text-sm text-slate-500 mb-8 ml-10">Définissez le niveau d'autorisation pour chaque fonctionnalité du système.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -184,6 +186,7 @@ new class extends Component {
             </div>
         </form>
     </section>
+    @endif
 
     <section class="p-6 bg-white rounded-2xl shadow-sm border border-slate-200">
         <form wire:submit="updatePassword">
