@@ -329,7 +329,7 @@
                 <div class="order-1 lg:order-2">
                     <div
                         class="w-full h-96 bg-gradient-to-br from-green-100 to-pink-100 rounded-3xl shadow-2xl flex items-center justify-center p-2">
-                        <img class="w-full h-full rounded-3xl" src="{{ asset('media/img/socials/formation.jpg') }}" alt="">
+                        <img class="w-full h-full rounded-3xl" src="{{ asset('media/img/socials/formation.jpg') }}" alt="" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>

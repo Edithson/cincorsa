@@ -97,23 +97,7 @@
         </div>
 
         <div class="mt-8 grid lg:grid-cols-2 gap-8">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="text-lg font-bold text-slate-800 mb-4">Paramètres Généraux</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">Nom du site</label>
-                        <input type="text" value="CINV-COR S.A"
-                            class="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
-                    </div>
-                    <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">Email de contact</label>
-                        <input type="email" value="contact@cinvcorsa.com"
-                            class="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
-                    </div>
-                    <button class="w-full bg-slate-900 text-white py-2 rounded-lg font-bold text-sm">Sauvegarder
-                        les modifications</button>
-                </div>
-            </div>
+            <livewire:pages.admin.quick-settings />
 
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                 <h3 class="text-lg font-bold text-slate-800 mb-4">Dernières demandes de contact</h3>

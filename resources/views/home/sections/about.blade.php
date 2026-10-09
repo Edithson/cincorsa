@@ -16,7 +16,7 @@
                         <rect x="140" y="240" width="90" height="6" rx="3" fill="#e5e7eb"/>
                         {{-- <circle cx="200" cy="290" r="20" fill="#ec4899"/>
                         <path d="M190 290 L197 297 L212 282" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/> --}}
-                        <img class="h-50 w-50" src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA">
+                        <img class="h-50 w-50" src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="Logo CINV-CORSA" loading="lazy" decoding="async">
                     </svg>
                 </div>
             </div>

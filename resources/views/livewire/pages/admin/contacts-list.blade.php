@@ -107,7 +107,7 @@ new class extends Component {
                     </span>
                 @endif
             </div>
-            <p class="text-slate-500 mt-1">Gérez les opportunités commerciales de CINV-CORSA</p>
+            <p class="text-slate-500 mt-1">Gérez les opportunités commerciales de {{ $siteName }}</p>
         </div>
 
         <button wire:click="exportExcel" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">

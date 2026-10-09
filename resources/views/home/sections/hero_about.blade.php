@@ -97,7 +97,7 @@
 
     <div class="archive-container">
 
-        <img src="{{ asset('media/img/logo/logo3.png') }}" alt="" class="absolute inset-0 w-full h-full object-cover object-center opacity-20 z-0">
+        <img src="{{ asset('media/img/logo/logo3.png') }}" alt="" class="absolute inset-0 w-full h-full object-cover object-center opacity-20 z-0" loading="lazy" decoding="async">
 
         <!-- Grille de fond -->
         <div class="data-grid"></div>

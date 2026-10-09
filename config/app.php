@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'developer_name' => env('DEVELOPER_NAME', 'FONHOUO GAUS'),
+    'developer_url' => env('DEVELOPER_URL', 'https://moafogaus.abrdns.com/'),
+
 ];

@@ -17,7 +17,7 @@
             <!-- Sector 1 -->
             <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
                 <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/public.png') }}" alt="Secteur Public">
+                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/public.png') }}" alt="Secteur Public" loading="lazy" decoding="async">
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Secteur Public</h3>
                 <ul class="space-y-2 text-gray-600">
@@ -44,7 +44,7 @@
             <!-- Sector 2 -->
             <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
                 <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/financier.png') }}" alt="Secteur Financier">
+                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/financier.png') }}" alt="Secteur Financier" loading="lazy" decoding="async">
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Secteur Financier</h3>
                 <ul class="space-y-2 text-gray-600">
@@ -75,7 +75,7 @@
             <!-- Sector 3 -->
             <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
                 <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/prive.png') }}" alt="Secteur Privé">
+                    <img class="w-full h-full rounded-2xl" src="{{ asset('media/img/secteur/prive.png') }}" alt="Secteur Privé" loading="lazy" decoding="async">
                 </div>
                 <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Secteur Privé</h3>
                 <ul class="space-y-2 text-gray-600">

@@ -16,8 +16,8 @@ $logout = function () {
 <aside id="sidebar"
     class="fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-white transform -translate-x-full lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300 ease-in-out">
     <div class="flex items-center justify-center h-20 bg-slate-950">
-        <img src="{{ asset('media/img/logo.png') }}" alt="logo cinv-corsa" class="w-8 h-8 object-contain">
-        <span class="text-xl font-black tracking-tighter text-emerald-400">CINV-COR <span
+        <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('media/img/logo.png') }}" alt="logo {{ $siteName }}" class="w-8 h-8 object-contain">
+        <span class="text-xl font-black tracking-tighter text-emerald-400">{{ $siteName }} <span
                 class="text-white">ADMIN</span></span>
     </div>
 

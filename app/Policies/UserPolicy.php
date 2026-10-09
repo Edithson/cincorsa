@@ -52,7 +52,12 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        // On ne peut pas se supprimer soi-même
+        // L'administrateur principal (ID 1) ne peut JAMAIS être supprimé
+        if ((int) $model->id === 1) {
+            return false;
+        }
+
+        // Un utilisateur ne peut pas se supprimer lui-même
         if ($user->id === $model->id) {
             return false;
         }

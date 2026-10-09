@@ -15,6 +15,18 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * Intercepter la suppression du Super Admin ID 1 avec une redirection 403
+     */
+    protected static function booted(): void
+    {
+        static::deleting(function (User $user) {
+            if ((int) $user->id === 1) {
+                abort(403, 'Le compte Administrateur principal (ID 1) ne peut pas être supprimé.');
+            }
+        });
+    }
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>

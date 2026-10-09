@@ -8,7 +8,7 @@
 
     <div class="container mx-auto px-6 relative z-10">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 md:p-16 shadow-2xl overflow-hidden relative">
-        <img src="{{asset('media/img/autres/cta.png')}}" alt="" class="w-full h-full absolute top-0 left-0 object-cover object-center opacity-10 pointer-events-none">
+        <img src="{{asset('media/img/autres/cta.png')}}" alt="" class="w-full h-full absolute top-0 left-0 object-cover object-center opacity-10 pointer-events-none" loading="lazy" decoding="async">
 
             <div class="absolute top-0 right-0 p-8 opacity-20 hidden lg:block">
                 <svg class="w-40 h-40 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
@@ -32,14 +32,14 @@
                     </h2>
 
                     <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl leading-relaxed">
-                        Ne laissez plus vos documents devenir un fardeau. Optimisez votre espace, sécurisez vos données et accélérez vos recherches avec l'expertise CINV-CORSA.
+                        Ne laissez plus vos documents devenir un fardeau. Optimisez votre espace, sécurisez vos données et accélérez vos recherches avec l'expertise {{ $siteName }}.
                     </p>
 
                     <div class="flex flex-wrap justify-center lg:justify-start gap-6 items-center">
                         <div class="flex -space-x-3">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=V+K&background=10b981&color=fff" alt="Client">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=A+M&background=3b82f6&color=fff" alt="Client">
-                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=S+T&background=8b5cf6&color=fff" alt="Client">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=V+K&background=10b981&color=fff" alt="Client" loading="lazy" decoding="async">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=A+M&background=3b82f6&color=fff" alt="Client" loading="lazy" decoding="async">
+                            <img class="w-10 h-10 rounded-full border-2 border-slate-900" src="https://ui-avatars.com/api/?name=S+T&background=8b5cf6&color=fff" alt="Client" loading="lazy" decoding="async">
                         </div>
                         <p class="text-sm text-gray-500 italic">+200 organisations nous font confiance au Cameroun.</p>
                     </div>
@@ -54,7 +54,10 @@
                         <div class="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-[-20deg] -translate-x-[150%] group-hover:translate-x-[250%] transition-transform duration-700"></div>
                     </a>
 
-                    <a href="tel:+23760770861" class="flex items-center justify-center border border-white/10 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-white/5 transition-all">
+                    @php
+                        $primaryPhone = !empty($sitePhones[0]) ? preg_replace('/[^0-9+]/', '', $sitePhones[0]) : '+237696156981';
+                    @endphp
+                    <a href="tel:{{ $primaryPhone }}" class="flex items-center justify-center border border-white/10 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-white/5 transition-all">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>

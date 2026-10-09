@@ -57,7 +57,9 @@
             <img class="w-full h-full object-cover object-center"
                 src="{{ asset('media/img/socials/cta.png') }}"
                 alt=""
-                aria-hidden="true">
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async">
 
             {{-- Halos décoratifs --}}
             <div class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -98,8 +100,10 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-slate-800">Localisation</h4>
-                                    <p class="text-gray-600">Carrefour Camp SONEL Essos,<br>Yaoundé, Cameroun</p>
-                                    <p class="text-sm text-gray-400 italic">BP 5747 Yaoundé</p>
+                                    <p class="text-gray-600">{{ $siteAdresse }}</p>
+                                    @if($siteBp)
+                                    <p class="text-sm text-gray-400 italic">{{ $siteBp }}</p>
+                                    @endif
                                 </div>
                             </div>
 
@@ -114,8 +118,9 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-slate-800">Téléphone</h4>
-                                    <p class="text-gray-600">+237 6 96 15 69 81</p>
-                                    <p class="text-gray-600">+237 6 99 15 69 81</p>
+                                    @foreach($sitePhones as $phone)
+                                    <p class="text-gray-600"><a href="tel:{{ preg_replace('/[^0-9+]/', '', $phone) }}" class="hover:text-emerald-600 transition">{{ $phone }}</a></p>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -130,7 +135,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-slate-800">Email</h4>
-                                    <p class="text-gray-600">contact@cinvcorsa.com</p>
+                                    <p class="text-gray-600"><a href="mailto:{{ $siteEmail }}" class="hover:text-emerald-600 transition">{{ $siteEmail }}</a></p>
                                 </div>
                             </div>
 
@@ -144,8 +149,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-slate-800">Heures d'ouverture</h4>
-                                    <p class="text-gray-600">Lundi - Vendredi</p>
-                                    <p class="text-sm font-semibold text-emerald-600">08H30 - 17H00</p>
+                                    <p class="text-sm font-semibold text-emerald-600">{{ $siteHoraire }}</p>
                                 </div>
                             </div>
                         </div>
@@ -168,8 +172,7 @@
         <div class="absolute top-2 right-2 z-10 hidden md:block">
             <div class="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 max-w-xs">
                 <h4 class="font-bold text-slate-800">Retrouvez-nous</h4>
-                <p class="text-sm text-gray-500 mt-1 italic">Situé au carrefour Camp SONEL Essos, nous vous accueillons
-                    dans nos locaux de Yaoundé.</p>
+                <p class="text-sm text-gray-500 mt-1 italic">{{ $siteAdresse }}</p>
             </div>
         </div>
 

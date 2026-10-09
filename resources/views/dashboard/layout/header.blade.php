@@ -24,8 +24,12 @@ $logout = function () {
                 </button>
             </div>
 
-            <div class="flex items-center">
-                <div class="relative ml-3" x-data="{ open: false }">
+            <div class="flex items-center gap-3">
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-2 px-3 py-2 text-xs font-bold text-slate-700 hover:text-emerald-700 bg-slate-100 hover:bg-emerald-50 rounded-xl transition-all border border-slate-200" title="Voir le site vitrine">
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    <span class="hidden sm:inline">Voir le site</span>
+                </a>
+                <div class="relative ml-1" x-data="{ open: false }">
                     <button @click="open = !open" @click.away="open = false" class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-all focus:outline-none">
                         <div class="text-right hidden md:block">
                             <p class="text-sm font-bold text-slate-900">{{ Auth::user()->name }}</p>
