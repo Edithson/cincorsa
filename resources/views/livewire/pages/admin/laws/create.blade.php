@@ -26,8 +26,8 @@ new class extends Component {
         $this->validate([
             'title' => 'required|min:5|max:255',
             'description' => 'required|min:10',
-            // le document est obligatoire et foit etre une image ou un pdf
-            'document' => 'required|mimes:pdf,jpg,jpeg,png|extensions:pdf,jpg,jpeg,png|max:2048',
+            // le document est obligatoire et foit etre une image ou un pdf ne dépassant pas 10MB
+            'document' => 'required|mimes:pdf,jpg,jpeg,png|extensions:pdf,jpg,jpeg,png|max:10240',
         ]);
 
         // 2. Gestion du document
