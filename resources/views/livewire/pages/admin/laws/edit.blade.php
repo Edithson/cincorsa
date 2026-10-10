@@ -29,7 +29,7 @@ new class extends Component {
             'title' => 'required|min:5|max:255',
             'description' => 'required|min:10',
             // Le document est optionnel ici (nullable)
-            'document' => 'nullable|mimes:pdf,jpg,jpeg,png|extensions:pdf,jpg,jpeg,png|max:4096',
+            'document' => 'nullable|mimes:pdf,jpg,jpeg,png|extensions:pdf,jpg,jpeg,png|max:10240',
         ]);
 
         // 2. Gestion du document (On ne remplace que si un nouveau est fourni)
